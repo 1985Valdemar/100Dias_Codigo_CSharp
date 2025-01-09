@@ -1,4 +1,5 @@
 # 100 Dias de Código em C# 🚀
+## 100 Days of Code in C# 🚀
 ## 🌟🌟🌟 Bora Focar Para Aprender e Ter Realizações 🚀🚀🚀
 
 ### 🗓️ Calendário do Desafio: 
