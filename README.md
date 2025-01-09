@@ -1,6 +1,9 @@
 # 100 Dias de Código em C# 🚀
 ## 🌟🌟🌟 Bora Focar Para Aprender e Ter Realizações 🚀🚀🚀
-Bem-vindo ao meu repositório de 100 Dias de Código em C#! Aqui, vou documentar minha jornada diária de aprendizado e desenvolvimento em C#. Meu objetivo é praticar e melhorar minhas habilidades de programação através da consistência e dedicação.
+
+### 🗓️ Calendário do Desafio: 
+- **Início:** 09 de janeiro de 2025 🎯✨🚀💻 
+- **Término:** 18 de abril de 2025 🎯✨🚀💻 
 
 ## 🌟 Progresso
 
