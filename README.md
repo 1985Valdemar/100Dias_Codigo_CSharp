@@ -22,13 +22,14 @@
 ## Dia 1
 - Estudei os fundamentos de C#.
 - Pratiquei conceitos de OOP.
-- Criei Pasta Common para Otimizar codigo e poder reutilizar codigo
+- Criei Pasta Common para Otimizar codigo e poder reutilizar codigo.
 
 ## Dia 2
-- Trabalhei em um projeto pessoal utilizando PostgreSQL.
+- Criei Base model para armazenar Id.
+- Criei Cliente e suas propriedades e com herança da base model para utilizar Id.
 
 ## Dia 3
-- Desenvolvi relatórios utilizando Stimulsoft.
+- D
 
 - ...
 
