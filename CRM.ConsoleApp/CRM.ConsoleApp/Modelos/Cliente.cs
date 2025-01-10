@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CRM.ConsoleApp.Modelos
 {
-    public class Cliente
+    public class Cliente : BaseModel
     {
         public string Nome { get; set; }
         public string Sobrenome { get; set; }
