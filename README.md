@@ -22,6 +22,7 @@
 ## Dia 1
 - Estudei os fundamentos de C#.
 - Pratiquei conceitos de OOP.
+- Criei Pasta Common para Otimizar codigo e poder reutilizar codigo
 
 ## Dia 2
 - Trabalhei em um projeto pessoal utilizando PostgreSQL.
