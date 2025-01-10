@@ -10,14 +10,9 @@
 
 ![100 Days of Code](https://img.shields.io/badge/100DaysOfCode-blueviolet)
 
-## 🗓️ Log de Atividades
-
-- **Dia 1:** Introdução ao C# e conceitos básicos de OOP.
-- **Dia 2:** Trabalhando com bancos de dados PostgreSQL.
-- **Dia 3:** Criando relatórios com Stimulsoft.
 - ...
 
-## 📂 Log de Atividades - 100 Dias de Código em C#
+## 🗓️ Log de Atividades - 100 Dias de Código em C#
 
 ## Dia 1
 - Estudei os fundamentos de C#.
