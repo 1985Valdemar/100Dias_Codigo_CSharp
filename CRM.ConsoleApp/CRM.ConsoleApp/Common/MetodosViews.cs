@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CRM.ConsoleApp.Common
 {
-    internal class ModeloView
+    internal class MetodosViews
     {
 
         //****** METODO LIMPAR & MOSTRAR CABECALHO ******
