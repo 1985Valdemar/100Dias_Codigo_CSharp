@@ -24,7 +24,10 @@
 - Criei Cliente e suas propriedades e com herança da base model para utilizar Id.
 
 ## Dia 3
-- D
+- Criei métodos CRUD (Create, Read, Update,) para salvar e resgatar dados.
+- Implementei uma View para interagir com os métodos CRUD e manipular os dados.
+- Usei um arquivo de texto (.txt) para praticar a persistência e recuperação de dados. 
+
 
 - ...
 
