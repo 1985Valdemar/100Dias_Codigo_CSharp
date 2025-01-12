@@ -1,2 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using CRM.ConsoleApp.Views;
+
+MenuPrincipal menuPrincipal = new MenuPrincipal();
+menuPrincipal.MenuEscolha();

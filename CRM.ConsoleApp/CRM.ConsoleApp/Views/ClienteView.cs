@@ -34,6 +34,10 @@ namespace CRM.ConsoleApp.Views
             cliente.Sobrenome = Console.ReadLine();
 
             //****** SOLICITANDO PARA DIGITAR ******
+            Console.Write("Digite Telefone: ");
+            cliente.Telefone =  Convert.ToInt32(Console.ReadLine());
+
+            //****** SOLICITANDO PARA DIGITAR ******
             Console.Write("Digite Seu Cpf: ");
             cliente.Cpf = Console.ReadLine();
 
