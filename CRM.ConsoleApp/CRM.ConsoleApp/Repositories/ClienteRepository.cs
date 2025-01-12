@@ -55,7 +55,7 @@ namespace CRM.ConsoleApp.Repositories
             //****** Salvar o cliente no arquivo de texto
             using (StreamWriter sw = new StreamWriter(_nomeArquivo, append: true))
             {
-                sw.WriteLine($"{model.Id};{model.Nome};{model.Sobrenome};{model.Cpf}");
+                sw.WriteLine($"{model.Id};{model.Nome};{model.Sobrenome};{model.Telefone};{model.Cpf}");
             }
 
             return $"Cliente: {model.Nome} cadastrado com sucesso!";
@@ -77,7 +77,7 @@ namespace CRM.ConsoleApp.Repositories
                         // Dividir a linha em campos
                         string[] dados = linha.Split(";");
 
-                        if (dados.Length < 4)
+                        if (dados.Length < 5)
                         {
                             Console.ForegroundColor = ConsoleColor.Red;
                             Console.WriteLine("Linha com dados insuficientes, ignorando...");
@@ -89,7 +89,8 @@ namespace CRM.ConsoleApp.Repositories
                             Id = Convert.ToInt32(dados[0]),
                             Nome = dados[1],
                             Sobrenome = dados[2],
-                            Cpf = dados[3]
+                            Telefone = Convert.ToInt32(dados[3]),
+                            Cpf = dados[4]
                         };
                         listaCliente.Add(cliente);
                     }
