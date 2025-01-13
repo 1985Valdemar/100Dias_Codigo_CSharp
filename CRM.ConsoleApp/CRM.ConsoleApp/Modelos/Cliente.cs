@@ -15,7 +15,7 @@ namespace CRM.ConsoleApp.Modelos
 
         public override string ToString()
         {
-            return $"{base.ToString};{this.Nome};{this.Sobrenome};{this.Telefone};{this.Cpf}";
+            return $"{this.Id};{this.Nome};{this.Sobrenome};{this.Telefone};{this.Cpf}";
         }
     }
 }
