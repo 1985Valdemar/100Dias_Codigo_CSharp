@@ -28,6 +28,10 @@
 - Implementei uma View para interagir com os métodos CRUD e manipular os dados.
 - Usei um arquivo de texto (.txt) para praticar a persistência e recuperação de dados. 
 
+## Dia 4
+- Corrigido codigo pois tostring estava base.ToString Trazendo todas infomação,
+  - Ficou this.Id dentro do Tosting trazendo somente o Id
+- 
 
 - ...
 
