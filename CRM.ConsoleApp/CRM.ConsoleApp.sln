@@ -5,7 +5,7 @@ VisualStudioVersion = 17.11.35312.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CRM.ConsoleApp", "CRM.ConsoleApp\CRM.ConsoleApp.csproj", "{D80C0E9A-3A22-472E-AB99-9A5665D91006}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp1", "..\..\..\0.01.1-Primeiro acesso banco\ConsoleApp1\ConsoleApp1\ConsoleApp1.csproj", "{F194B43F-1C44-4BC1-82E6-734B8B20F8A1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp2", "ConsoleApp2\ConsoleApp2.csproj", "{4E42D423-B9C6-4C63-A617-5278313260EA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{D80C0E9A-3A22-472E-AB99-9A5665D91006}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D80C0E9A-3A22-472E-AB99-9A5665D91006}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D80C0E9A-3A22-472E-AB99-9A5665D91006}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F194B43F-1C44-4BC1-82E6-734B8B20F8A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F194B43F-1C44-4BC1-82E6-734B8B20F8A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F194B43F-1C44-4BC1-82E6-734B8B20F8A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F194B43F-1C44-4BC1-82E6-734B8B20F8A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E42D423-B9C6-4C63-A617-5278313260EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E42D423-B9C6-4C63-A617-5278313260EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E42D423-B9C6-4C63-A617-5278313260EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E42D423-B9C6-4C63-A617-5278313260EA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
