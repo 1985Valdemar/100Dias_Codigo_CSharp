@@ -29,9 +29,23 @@
 - Usei um arquivo de texto (.txt) para praticar a persistência e recuperação de dados. 
 
 ## Dia 4
+- Implementado Menu e Realizado testes para chamar program
+- Realizado testes e funcionou 
+
+## Dia 5
 - Corrigido codigo pois tostring estava base.ToString Trazendo todas infomação,
   - Ficou this.Id dentro do Tosting trazendo somente o Id
-- 
+
+## Dia 6
+- Criado novo ConsoleApp2 para praticar comunicação com banco dados postgres.
+- Após varias tentativas falhas consegui deu certo.
+- Estava tentando implementar em uma estrutura mais robusta mas deu varios B.O.
+- Por este motivo Criei uma estrutura simples e funcionou agora proximo Desafio ajustar
+  uma estrutura mais robusta.
+- Unica coisa manual foi criar banco pelo DBeaver o resto tudo pelo C# e ajuda IA.
+- Abaixo Imagem test estou usando DBeaver para fazer Gerenciamento do Banco Dados
+- ![Captura de tela 2025-01-14 155648](https://github.com/user-attachments/assets/1ad1acf4-a8ac-470f-9249-79041060c203)
+
 
 - ...
 
