@@ -1,7 +1,9 @@
-﻿using Npgsql;
+﻿using ConsoleApp2.Modelos;
+using Npgsql;
 using System;
+using System.Collections.Generic;
 
-namespace ConsoleApp1.Repositories
+namespace ConsoleApp2.Repositories
 {
     public class ClienteRepository
     {
@@ -40,16 +42,42 @@ namespace ConsoleApp1.Repositories
 
                 using (var command = new NpgsqlCommand(query, connection))
                 {
-                    // Parâmetros para evitar SQL Injection
                     command.Parameters.AddWithValue("@Nome", nome);
                     command.Parameters.AddWithValue("@Sobrenome", sobrenome);
                     command.Parameters.AddWithValue("@Telefone", telefone);
                     command.Parameters.AddWithValue("@Cpf", cpf);
-
-                    // Executa o comando no banco
                     command.ExecuteNonQuery();
                 }
             }
+        }
+
+        // Método para obter todos os clientes
+        public List<Cliente> ObterTodos()
+        {
+            var clientes = new List<Cliente>();
+
+            using (var connection = new NpgsqlConnection(_connectionString))
+            {
+                connection.Open();
+                string query = "SELECT Nome, Sobrenome, Telefone, Cpf FROM Clientes";
+
+                using (var command = new NpgsqlCommand(query, connection))
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        clientes.Add(new Cliente
+                        {
+                            Nome = reader.GetString(0),
+                            Sobrenome = reader.GetString(1),
+                            Telefone = reader.GetString(2),
+                            Cpf = reader.GetString(3)
+                        });
+                    }
+                }
+            }
+
+            return clientes;
         }
     }
 }
