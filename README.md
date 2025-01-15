@@ -46,6 +46,11 @@
 - Abaixo Imagem test estou usando DBeaver para fazer Gerenciamento do Banco Dados
 - ![Captura de tela 2025-01-14 155648](https://github.com/user-attachments/assets/1ad1acf4-a8ac-470f-9249-79041060c203)
 
+## Dia 7
+- Otimizado codigo com Menu e Reestruturado codigo deixando mais robusto
+- segue imagem codigo
+- ![Captura de tela 2025-01-15 171503](https://github.com/user-attachments/assets/76b98291-e80a-4e52-8ea8-81d718c0fb05)
+
 
 - ...
 
