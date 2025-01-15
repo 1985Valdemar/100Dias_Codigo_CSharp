@@ -11,4 +11,8 @@
     <PackageReference Include="Npgsql" Version="9.0.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CRM.ConsoleApp\CRM.ConsoleApp.csproj" />
+  </ItemGroup>
+
 </Project>
