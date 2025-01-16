@@ -44,12 +44,24 @@
   uma estrutura mais robusta.
 - Unica coisa manual foi criar banco pelo DBeaver o resto tudo pelo C# e ajuda IA.
 - Abaixo Imagem test estou usando DBeaver para fazer Gerenciamento do Banco Dados
-- ![Captura de tela 2025-01-14 155648](https://github.com/user-attachments/assets/1ad1acf4-a8ac-470f-9249-79041060c203)
+  <br>
+  
+ ![Captura de tela 2025-01-14 155648](https://github.com/user-attachments/assets/1ad1acf4-a8ac-470f-9249-79041060c203)
 
 ## Dia 7
 - Otimizado codigo com Menu e Reestruturado codigo deixando mais robusto
 - segue imagem codigo
-- ![Captura de tela 2025-01-15 171503](https://github.com/user-attachments/assets/76b98291-e80a-4e52-8ea8-81d718c0fb05)
+  <br>
+  
+ ![Captura de tela 2025-01-15 171503](https://github.com/user-attachments/assets/76b98291-e80a-4e52-8ea8-81d718c0fb05)
+
+## Dia 8
+- Otimizado codigo com Pasta Common para Reutilizar codigo
+- Reestruturado codigo deixando mais robusto colocando cores e para otimizar
+- segue imagem codigo
+  <br>
+
+![Captura de tela 2025-01-16 191703](https://github.com/user-attachments/assets/c7459eae-564f-41f7-ba64-56de796e19d5)
 
 
 - ...
