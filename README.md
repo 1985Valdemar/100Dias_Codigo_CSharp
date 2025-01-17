@@ -63,6 +63,10 @@
 
 ![Captura de tela 2025-01-16 191703](https://github.com/user-attachments/assets/c7459eae-564f-41f7-ba64-56de796e19d5)
 
+## Dia 9
+- Revisto Codigo View e Repository para otimizar codigo
+- Após modificação testado Codigo ficou Top
+- Mais Limpo e Claro nas declarações
 
 - ...
 
