@@ -30,7 +30,8 @@ namespace CRM.ConsoleApp2.Views
                 Console.Write("Escolha uma opção: ");
                 if (!int.TryParse(Console.ReadLine(), out opcao))
                 {
-                    Console.WriteLine("Opção inválida! Por favor, insira um número.");
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    MetodosViews.Mensagem("Opção inválida! Por favor, insira um número.");
                     continue;
                 }
 
@@ -59,7 +60,8 @@ namespace CRM.ConsoleApp2.Views
             var clientes = _clienteRepository.ObterTodos(); // Supondo que você tenha um método ObterTodos() no ClienteRepository
             if (clientes.Count == 0)
             {
-                Console.WriteLine("Nenhum cliente cadastrado.");
+                Console.ForegroundColor = ConsoleColor.Red;
+                MetodosViews.Mensagem("Nenhum cliente cadastrado.");
             }
             else
             {
@@ -73,6 +75,7 @@ namespace CRM.ConsoleApp2.Views
 
         private void CadastrarCliente()
         {
+            MetodosViews.Limpar();
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("\nCadastro de Novo Cliente");
 
@@ -91,7 +94,7 @@ namespace CRM.ConsoleApp2.Views
             _clienteRepository.Create(nome, sobrenome, telefone, cpf);
 
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("Cliente cadastrado com sucesso!");
+            MetodosViews.Mensagem("Cliente cadastrado com sucesso!");
         }
 
     }

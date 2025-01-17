@@ -1,4 +1,5 @@
-﻿using ConsoleApp2.Modelos;
+﻿using ConsoleApp2.Common;
+using ConsoleApp2.Modelos;
 using Npgsql;
 using System;
 using System.Collections.Generic;
@@ -27,7 +28,8 @@ namespace ConsoleApp2.Repositories
                 using (var command = new NpgsqlCommand(query, connection))
                 {
                     command.ExecuteNonQuery();
-                    Console.WriteLine("Tabela 'Clientes' criada ou já existe.");
+                    Console.ForegroundColor = ConsoleColor.DarkGray;
+                    MetodosViews.Mensagem("Tabela 'Clientes' criada ou já existe.");
                 }
             }
         }
