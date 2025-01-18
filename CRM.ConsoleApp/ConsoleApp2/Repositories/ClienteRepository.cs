@@ -81,5 +81,62 @@ namespace ConsoleApp2.Repositories
 
             return clientes;
         }
+        // Método para deletar um cliente pelo CPF
+        public void Delete(string cpf)
+        {
+            using (var connection = new NpgsqlConnection(_connectionString))
+            {
+                connection.Open();
+                string query = "DELETE FROM Clientes WHERE Cpf = @Cpf";
+
+                using (var command = new NpgsqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Cpf", cpf);
+                    int rowsAffected = command.ExecuteNonQuery();
+
+                    if (rowsAffected > 0)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        MetodosViews.Mensagem("Cliente deletado com sucesso.");
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        MetodosViews.Mensagem("Cliente não encontrado.");
+                    }
+                }
+            }
+        }
+        // Método para obter um cliente pelo CPF
+        public Cliente ObterPorCpf(string cpf)
+        {
+            Cliente cliente = null;
+
+            using (var connection = new NpgsqlConnection(_connectionString))
+            {
+                connection.Open();
+                string query = "SELECT Nome, Sobrenome, Telefone, Cpf FROM Clientes WHERE Cpf = @Cpf";
+
+                using (var command = new NpgsqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Cpf", cpf);
+
+                    using (var reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            cliente = new Cliente
+                            {
+                                Nome = reader.GetString(0),
+                                Sobrenome = reader.GetString(1),
+                                Telefone = reader.GetString(2),
+                                Cpf = reader.GetString(3)
+                            };
+                        }
+                    }
+                }
+            }
+            return cliente;
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using ConsoleApp2.Common;
 using ConsoleApp2.Repositories;
+using Npgsql;
 using System;
 
 namespace CRM.ConsoleApp2.Views
@@ -26,6 +27,7 @@ namespace CRM.ConsoleApp2.Views
                 Console.WriteLine("\nBem-vindo ao Cadastro de Clientes!");
                 Console.WriteLine("1. Listar Clientes");
                 Console.WriteLine("2. Cadastrar Novo Cliente");
+                Console.WriteLine("3. Deletar Cliente");
                 Console.WriteLine("0. Sair");
                 Console.Write("Escolha uma opção: ");
                 if (!int.TryParse(Console.ReadLine(), out opcao))
@@ -42,6 +44,9 @@ namespace CRM.ConsoleApp2.Views
                         break;
                     case 2:
                         CadastrarCliente();
+                        break;
+                    case 3:
+                        DeletarCliente();
                         break;
                     case 0:
                         MetodosViews.Mensagem("Saindo...");
@@ -69,6 +74,43 @@ namespace CRM.ConsoleApp2.Views
                 {
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine($"Nome: {cliente.Nome}, Sobrenome: {cliente.Sobrenome}, Telefone: {cliente.Telefone}, CPF: {cliente.Cpf}");
+                }
+            }
+        }
+
+        private void DeletarCliente()
+        {
+            MetodosViews.Limpar();
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("\nDeletar Cliente");
+
+            Console.Write("Digite o CPF do cliente que deseja deletar: ");
+            string cpf = Console.ReadLine();
+
+            var cliente = _clienteRepository.ObterPorCpf(cpf);
+
+            if (cliente == null)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                MetodosViews.Mensagem("Cliente não encontrado.");
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine($"Nome: {cliente.Nome}, Sobrenome: {cliente.Sobrenome}, Telefone: {cliente.Telefone}, CPF: {cliente.Cpf}");
+
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.Write("Deseja realmente deletar este cliente? (S/N): ");
+                string confirmacao = Console.ReadLine().ToUpper();
+
+                if (confirmacao == "S")
+                {
+                    _clienteRepository.Delete(cpf);
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    MetodosViews.Mensagem("Operação de exclusão cancelada.");
                 }
             }
         }
