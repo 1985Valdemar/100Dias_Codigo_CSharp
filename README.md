@@ -68,9 +68,20 @@
 - Após modificação testado Codigo ficou Top
 - Mais Limpo e Claro nas declarações
 
-- ...
+## Dia 10
+- Implementado Metodo Deletar
+- Testado delete simples mas por segurança obtei em aprimorar e deixar mais seguro codigo
+- Antes deletar Vai Solicitar confirmaçao do CPF para usuario confirmar e assim deletar
+- segue imagem codigo
+  <br>
 
+![Captura de tela 2025-01-18 201403](https://github.com/user-attachments/assets/49a5823d-10d0-4960-8155-5db649e4edfc)
+
+  
 ## 🔗 Links Úteis
 
 - [Meu LinkedIn](https://www.linkedin.com/in/valdemar-teider-5336b394/)
 - [Meu GitHub](https://github.com/1985Valdemar)
+
+## Este registro diário demonstra um compromisso contínuo com a aprendizagem e a aplicação prática dos conceitos em C#. O desafio não apenas melhora as habilidades técnicas, mas também promove uma disciplina valiosa na programação.
+
