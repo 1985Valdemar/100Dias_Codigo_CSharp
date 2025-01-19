@@ -114,7 +114,6 @@ namespace CRM.ConsoleApp2.Views
                 }
             }
         }
-
         private void CadastrarCliente()
         {
             MetodosViews.Limpar();
@@ -138,6 +137,5 @@ namespace CRM.ConsoleApp2.Views
             Console.ForegroundColor = ConsoleColor.Green;
             MetodosViews.Mensagem("Cliente cadastrado com sucesso!");
         }
-
     }
 }
