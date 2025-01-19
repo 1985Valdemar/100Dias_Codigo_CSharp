@@ -62,7 +62,7 @@ namespace CRM.ConsoleApp2.Views
         private void ListarClientes()
         {
             Console.WriteLine("\nLista de Clientes:");
-            var clientes = _clienteRepository.ObterTodos(); // Supondo que você tenha um método ObterTodos() no ClienteRepository
+            var clientes = _clienteRepository.ObterTodos();
             if (clientes.Count == 0)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
@@ -73,7 +73,7 @@ namespace CRM.ConsoleApp2.Views
                 foreach (var cliente in clientes)
                 {
                     Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine($"Nome: {cliente.Nome}, Sobrenome: {cliente.Sobrenome}, Telefone: {cliente.Telefone}, CPF: {cliente.Cpf}");
+                    Console.WriteLine($"Id: {cliente.Id}, Nome: {cliente.Nome}, Sobrenome: {cliente.Sobrenome}, Telefone: {cliente.Telefone}, CPF: {cliente.Cpf}");
                 }
             }
         }
@@ -97,7 +97,7 @@ namespace CRM.ConsoleApp2.Views
             else
             {
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"Nome: {cliente.Nome}, Sobrenome: {cliente.Sobrenome}, Telefone: {cliente.Telefone}, CPF: {cliente.Cpf}");
+                Console.WriteLine($"Id: {cliente.Id}, Nome: {cliente.Nome}, Sobrenome: {cliente.Sobrenome}, Telefone: {cliente.Telefone}, CPF: {cliente.Cpf}");
 
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.Write("Deseja realmente deletar este cliente? (S/N): ");
@@ -132,10 +132,10 @@ namespace CRM.ConsoleApp2.Views
             Console.Write("Digite o CPF: ");
             string cpf = Console.ReadLine();
 
-            _clienteRepository.Create(nome, sobrenome, telefone, cpf);
+            int novoId = _clienteRepository.Create(nome, sobrenome, telefone, cpf);
 
             Console.ForegroundColor = ConsoleColor.Green;
-            MetodosViews.Mensagem("Cliente cadastrado com sucesso!");
+            MetodosViews.Mensagem($"Cliente cadastrado com sucesso! Id: {novoId}");
         }
     }
 }
