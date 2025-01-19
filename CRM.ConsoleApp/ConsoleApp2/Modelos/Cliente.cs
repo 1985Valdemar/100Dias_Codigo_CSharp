@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp2.Modelos
 {
-    public class Cliente
+    public class Cliente:BaseModel
     {
         public string Nome { get; set; }
         public string Sobrenome { get; set; }
@@ -15,7 +15,7 @@ namespace ConsoleApp2.Modelos
 
         public override string ToString()
         {
-            return $"Nome: {Nome}, Sobrenome: {Sobrenome}, Telefone: {Telefone}, CPF: {Cpf}";
+            return $"Id: {this.Id}, Nome: {Nome}, Sobrenome: {Sobrenome}, Telefone: {Telefone}, CPF: {Cpf}";
         }
     }
 
