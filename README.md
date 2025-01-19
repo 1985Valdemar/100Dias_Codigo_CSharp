@@ -77,6 +77,18 @@
 
 ![Captura de tela 2025-01-18 201403](https://github.com/user-attachments/assets/49a5823d-10d0-4960-8155-5db649e4edfc)
 
+## Dia 10
+- Implementado Base Model para Id
+- Utilizando como Herança em Cliente para Id
+- Após varias tentativas e ajustes em Cliente e Repository Funcionou
+- segue imagem codigo aqui Banco dados
+  <br>
+![Captura de tela 2025-01-19 195312](https://github.com/user-attachments/assets/54bebfd2-72dc-4564-b871-63e0f4453948)
+  <br>
+- segue imagem codigo 
+![Captura de tela 2025-01-19 194919](https://github.com/user-attachments/assets/07d3a08d-5f44-49c0-876d-1e9a107207eb)
+
+
   
 ## 🔗 Links Úteis
 
