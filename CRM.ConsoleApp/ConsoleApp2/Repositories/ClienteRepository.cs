@@ -35,12 +35,12 @@ namespace ConsoleApp2.Repositories
         }
 
         // Método para criar um cliente no banco
-        public void Create(string nome, string sobrenome, string telefone, string cpf)
+        public int Create(string nome, string sobrenome, string telefone, string cpf)
         {
             using (var connection = new NpgsqlConnection(_connectionString))
             {
                 connection.Open();
-                string query = "INSERT INTO Clientes (Nome, Sobrenome, Telefone, Cpf) VALUES (@Nome, @Sobrenome, @Telefone, @Cpf)";
+                string query = "INSERT INTO Clientes (Nome, Sobrenome, Telefone, Cpf) VALUES (@Nome, @Sobrenome, @Telefone, @Cpf) RETURNING Id";
 
                 using (var command = new NpgsqlCommand(query, connection))
                 {
@@ -48,7 +48,9 @@ namespace ConsoleApp2.Repositories
                     command.Parameters.AddWithValue("@Sobrenome", sobrenome);
                     command.Parameters.AddWithValue("@Telefone", telefone);
                     command.Parameters.AddWithValue("@Cpf", cpf);
-                    command.ExecuteNonQuery();
+
+                    // Retorna o ID gerado pelo banco de dados
+                    return (int)command.ExecuteScalar();
                 }
             }
         }
@@ -61,7 +63,7 @@ namespace ConsoleApp2.Repositories
             using (var connection = new NpgsqlConnection(_connectionString))
             {
                 connection.Open();
-                string query = "SELECT Nome, Sobrenome, Telefone, Cpf FROM Clientes";
+                string query = "SELECT Id, Nome, Sobrenome, Telefone, Cpf FROM Clientes";
 
                 using (var command = new NpgsqlCommand(query, connection))
                 using (var reader = command.ExecuteReader())
@@ -70,10 +72,11 @@ namespace ConsoleApp2.Repositories
                     {
                         clientes.Add(new Cliente
                         {
-                            Nome = reader.GetString(0),
-                            Sobrenome = reader.GetString(1),
-                            Telefone = reader.GetString(2),
-                            Cpf = reader.GetString(3)
+                            Id = reader.GetInt32(0),
+                            Nome = reader.GetString(1),
+                            Sobrenome = reader.GetString(2),
+                            Telefone = reader.GetString(3),
+                            Cpf = reader.GetString(4)
                         });
                     }
                 }
@@ -81,6 +84,24 @@ namespace ConsoleApp2.Repositories
 
             return clientes;
         }
+
+        // Método para exibir todos os clientes no console
+        public void ExibirClientes()
+        {
+            var clientes = ObterTodos();
+            if (clientes.Count > 0)
+            {
+                foreach (var cliente in clientes)
+                {
+                    Console.WriteLine($"Id: {cliente.Id}, Nome: {cliente.Nome}, Sobrenome: {cliente.Sobrenome}, Telefone: {cliente.Telefone}, CPF: {cliente.Cpf}");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Nenhum cliente encontrado.");
+            }
+        }
+
         // Método para deletar um cliente pelo CPF
         public void Delete(string cpf)
         {
@@ -107,6 +128,7 @@ namespace ConsoleApp2.Repositories
                 }
             }
         }
+
         // Método para obter um cliente pelo CPF
         public Cliente ObterPorCpf(string cpf)
         {
@@ -115,7 +137,7 @@ namespace ConsoleApp2.Repositories
             using (var connection = new NpgsqlConnection(_connectionString))
             {
                 connection.Open();
-                string query = "SELECT Nome, Sobrenome, Telefone, Cpf FROM Clientes WHERE Cpf = @Cpf";
+                string query = "SELECT Id, Nome, Sobrenome, Telefone, Cpf FROM Clientes WHERE Cpf = @Cpf";
 
                 using (var command = new NpgsqlCommand(query, connection))
                 {
@@ -127,10 +149,11 @@ namespace ConsoleApp2.Repositories
                         {
                             cliente = new Cliente
                             {
-                                Nome = reader.GetString(0),
-                                Sobrenome = reader.GetString(1),
-                                Telefone = reader.GetString(2),
-                                Cpf = reader.GetString(3)
+                                Id = reader.GetInt32(0),
+                                Nome = reader.GetString(1),
+                                Sobrenome = reader.GetString(2),
+                                Telefone = reader.GetString(3),
+                                Cpf = reader.GetString(4)
                             };
                         }
                     }
