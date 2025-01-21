@@ -7,16 +7,13 @@ namespace DockerAspNet.API.ModeloView
     {
 
         private readonly ClienteRepository _clienteRepository;
-
         public ClienteView(ClienteRepository clienteRepository)
         { 
             _clienteRepository = clienteRepository;
         }
-
         public void ExibirMenu()
         {
             int opcao;
-
             do
             {
                 MetodosViews.Limpar();
@@ -56,7 +53,6 @@ namespace DockerAspNet.API.ModeloView
                 }
             } while (opcao != 0);
         }
-
         private void ListarClientes()
         {
             Console.WriteLine("\nLista de Clientes:");
@@ -75,7 +71,6 @@ namespace DockerAspNet.API.ModeloView
                 }
             }
         }
-
         private void DeletarCliente()
         {
             MetodosViews.Limpar();
