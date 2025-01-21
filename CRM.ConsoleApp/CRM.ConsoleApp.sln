@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp2", "ConsoleApp2\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Form", "teste\Form.csproj", "{AB16734C-A244-4FF3-B877-BB485169FF88}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DockerAspNet.API", "DockerAspNet.API\DockerAspNet.API\DockerAspNet.API.csproj", "{BB520F70-7F52-4112-8F82-014F4A7C4888}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{AB16734C-A244-4FF3-B877-BB485169FF88}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB16734C-A244-4FF3-B877-BB485169FF88}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AB16734C-A244-4FF3-B877-BB485169FF88}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB520F70-7F52-4112-8F82-014F4A7C4888}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB520F70-7F52-4112-8F82-014F4A7C4888}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB520F70-7F52-4112-8F82-014F4A7C4888}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB520F70-7F52-4112-8F82-014F4A7C4888}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
