@@ -91,8 +91,12 @@
 ## Dia 12
 - Criado Formulario com Form
 - Testado funcionado porém tem afazer link com view
+  <br>
 - ![Captura de tela 2025-01-20 195156](https://github.com/user-attachments/assets/9d481688-3dd5-4ffc-8d70-2ef0fe9bb553)
 
+## Dia 13
+- Inserido Web AspNet Core
+- Testado funcionando
 
   
 ## 🔗 Links Úteis
