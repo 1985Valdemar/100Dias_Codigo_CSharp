@@ -46,6 +46,10 @@
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnLimpar = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtSobrenome = new System.Windows.Forms.TextBox();
+            this.txtCpf = new System.Windows.Forms.TextBox();
+            this.cpf = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,7 +57,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(21, 18);
+            this.label1.Location = new System.Drawing.Point(23, 18);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(79, 29);
             this.label1.TabIndex = 0;
@@ -63,7 +67,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(21, 61);
+            this.label2.Location = new System.Drawing.Point(23, 180);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(196, 29);
             this.label2.TabIndex = 1;
@@ -74,7 +78,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(21, 104);
+            this.label3.Location = new System.Drawing.Point(21, 223);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(88, 29);
             this.label3.TabIndex = 2;
@@ -85,7 +89,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(21, 147);
+            this.label4.Location = new System.Drawing.Point(21, 100);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(110, 29);
             this.label4.TabIndex = 3;
@@ -95,15 +99,16 @@
             // txtNome
             // 
             this.txtNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNome.Location = new System.Drawing.Point(231, 12);
+            this.txtNome.Location = new System.Drawing.Point(233, 13);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(528, 34);
             this.txtNome.TabIndex = 4;
+            this.txtNome.TextChanged += new System.EventHandler(this.txtNome_TextChanged);
             // 
             // txtData
             // 
             this.txtData.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtData.Location = new System.Drawing.Point(231, 55);
+            this.txtData.Location = new System.Drawing.Point(231, 175);
             this.txtData.Name = "txtData";
             this.txtData.Size = new System.Drawing.Size(528, 34);
             this.txtData.TabIndex = 5;
@@ -112,7 +117,7 @@
             // 
             this.comboEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboEstado.FormattingEnabled = true;
-            this.comboEstado.Location = new System.Drawing.Point(231, 95);
+            this.comboEstado.Location = new System.Drawing.Point(231, 215);
             this.comboEstado.Name = "comboEstado";
             this.comboEstado.Size = new System.Drawing.Size(528, 37);
             this.comboEstado.TabIndex = 6;
@@ -120,7 +125,7 @@
             // txtTelefone
             // 
             this.txtTelefone.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelefone.Location = new System.Drawing.Point(231, 141);
+            this.txtTelefone.Location = new System.Drawing.Point(231, 95);
             this.txtTelefone.Mask = "(00) 00000 - 0000";
             this.txtTelefone.Name = "txtTelefone";
             this.txtTelefone.Size = new System.Drawing.Size(528, 34);
@@ -130,7 +135,7 @@
             // checkMultinacional
             // 
             this.checkMultinacional.AutoSize = true;
-            this.checkMultinacional.Location = new System.Drawing.Point(231, 197);
+            this.checkMultinacional.Location = new System.Drawing.Point(233, 258);
             this.checkMultinacional.Name = "checkMultinacional";
             this.checkMultinacional.Size = new System.Drawing.Size(107, 20);
             this.checkMultinacional.TabIndex = 8;
@@ -140,7 +145,7 @@
             // checkNacional
             // 
             this.checkNacional.AutoSize = true;
-            this.checkNacional.Location = new System.Drawing.Point(344, 197);
+            this.checkNacional.Location = new System.Drawing.Point(346, 258);
             this.checkNacional.Name = "checkNacional";
             this.checkNacional.Size = new System.Drawing.Size(83, 20);
             this.checkNacional.TabIndex = 9;
@@ -152,7 +157,7 @@
             this.groupBox1.Controls.Add(this.radioHospitalar);
             this.groupBox1.Controls.Add(this.radioMontadora);
             this.groupBox1.Controls.Add(this.radioMetalurgica);
-            this.groupBox1.Location = new System.Drawing.Point(231, 223);
+            this.groupBox1.Location = new System.Drawing.Point(231, 284);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(528, 76);
             this.groupBox1.TabIndex = 10;
@@ -196,17 +201,17 @@
             this.lista.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lista.FormattingEnabled = true;
             this.lista.ItemHeight = 29;
-            this.lista.Location = new System.Drawing.Point(26, 391);
+            this.lista.Location = new System.Drawing.Point(26, 420);
             this.lista.Name = "lista";
-            this.lista.Size = new System.Drawing.Size(716, 91);
+            this.lista.Size = new System.Drawing.Size(733, 62);
             this.lista.TabIndex = 11;
             this.lista.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lista_MouseDoubleClick);
             // 
             // btnCadastrar
             // 
-            this.btnCadastrar.Location = new System.Drawing.Point(26, 320);
+            this.btnCadastrar.Location = new System.Drawing.Point(24, 366);
             this.btnCadastrar.Name = "btnCadastrar";
-            this.btnCadastrar.Size = new System.Drawing.Size(191, 65);
+            this.btnCadastrar.Size = new System.Drawing.Size(191, 48);
             this.btnCadastrar.TabIndex = 12;
             this.btnCadastrar.Text = "Cadastrar / Alterar";
             this.btnCadastrar.UseVisualStyleBackColor = true;
@@ -214,9 +219,9 @@
             // 
             // btnExcluir
             // 
-            this.btnExcluir.Location = new System.Drawing.Point(288, 320);
+            this.btnExcluir.Location = new System.Drawing.Point(295, 366);
             this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(191, 65);
+            this.btnExcluir.Size = new System.Drawing.Size(191, 48);
             this.btnExcluir.TabIndex = 13;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
@@ -224,19 +229,64 @@
             // 
             // btnLimpar
             // 
-            this.btnLimpar.Location = new System.Drawing.Point(550, 320);
+            this.btnLimpar.Location = new System.Drawing.Point(568, 366);
             this.btnLimpar.Name = "btnLimpar";
-            this.btnLimpar.Size = new System.Drawing.Size(191, 65);
+            this.btnLimpar.Size = new System.Drawing.Size(191, 48);
             this.btnLimpar.TabIndex = 14;
             this.btnLimpar.Text = "Limpar";
             this.btnLimpar.UseVisualStyleBackColor = true;
             this.btnLimpar.Click += new System.EventHandler(this.button1_Click_1);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(21, 58);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(140, 29);
+            this.label5.TabIndex = 15;
+            this.label5.Tag = "";
+            this.label5.Text = "Sobrenome";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
+            // 
+            // txtSobrenome
+            // 
+            this.txtSobrenome.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSobrenome.Location = new System.Drawing.Point(231, 53);
+            this.txtSobrenome.Name = "txtSobrenome";
+            this.txtSobrenome.Size = new System.Drawing.Size(528, 34);
+            this.txtSobrenome.TabIndex = 16;
+            this.txtSobrenome.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
+            // 
+            // txtCpf
+            // 
+            this.txtCpf.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCpf.Location = new System.Drawing.Point(233, 135);
+            this.txtCpf.Name = "txtCpf";
+            this.txtCpf.Size = new System.Drawing.Size(528, 34);
+            this.txtCpf.TabIndex = 18;
+            this.txtCpf.TextChanged += new System.EventHandler(this.textCpf_TextChanged);
+            // 
+            // cpf
+            // 
+            this.cpf.AutoSize = true;
+            this.cpf.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cpf.Location = new System.Drawing.Point(23, 140);
+            this.cpf.Name = "cpf";
+            this.cpf.Size = new System.Drawing.Size(61, 29);
+            this.cpf.TabIndex = 17;
+            this.cpf.Text = "CPF";
+            this.cpf.Click += new System.EventHandler(this.cpf_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(771, 494);
+            this.ClientSize = new System.Drawing.Size(785, 510);
+            this.Controls.Add(this.txtCpf);
+            this.Controls.Add(this.cpf);
+            this.Controls.Add(this.txtSobrenome);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnCadastrar);
@@ -284,6 +334,10 @@
         private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnLimpar;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtSobrenome;
+        private System.Windows.Forms.TextBox txtCpf;
+        private System.Windows.Forms.Label cpf;
     }
 }
 
