@@ -98,6 +98,48 @@
 - Inserido Web AspNet Core
 - Testado funcionando
 
+## Dia 14
+- Ajustado formulario
+- Utilizado Try-Catch para possiveis erros para quando for exluir mostrar msg
+- Confirmando com usuario o cancelamento
+- Abaixo Codigo e imagem codigo
+```csharp
+private void btnExcluir_Click(object sender, EventArgs e)
+{
+    try
+    {
+        int indice = lista.SelectedIndex;
+
+        // Verificar se algum item está selecionado
+        if (indice >= 0)
+        {
+            // Exibir mensagem de confirmação
+            DialogResult resultado = MessageBox.Show("Tem certeza que deseja excluir esta empresa?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            // Verificar resposta do usuário
+            if (resultado == DialogResult.Yes)
+            {
+                listaEmpresa.RemoveAt(indice);
+                Listar();
+            }
+        }
+        else
+        {
+            MessageBox.Show("Selecione uma empresa para excluir.");
+        }
+    }
+    catch (Exception ex)
+    {
+        MessageBox.Show($"Ocorreu um erro: {ex.Message}");
+    }
+}
+```
+ 
+![Captura de tela 2025-01-22 153316](https://github.com/user-attachments/assets/ec24dcf3-aba5-40e2-96f3-b0aac6a149c6)
+
+![Captura de tela 2025-01-22 153817](https://github.com/user-attachments/assets/51721841-ca7f-4740-a3f7-ef3aaf837383)
+
+
   
 ## 🔗 Links Úteis
 
