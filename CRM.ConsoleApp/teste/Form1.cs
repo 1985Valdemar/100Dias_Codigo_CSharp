@@ -74,9 +74,11 @@ namespace teste
         private void button1_Click_1(object sender, EventArgs e)
         {
             txtNome.Text = "";
+            txtSobrenome.Text = "";
             txtData.Text = "";
             comboEstado.SelectedIndex = 0;
             txtTelefone.Text = "";
+            txtCpf.Text = "";
             checkMultinacional.Checked = false;
             checkNacional.Checked = false;
             radioHospitalar.Checked = false;
@@ -131,9 +133,11 @@ namespace teste
 
             Empresa empresa = new Empresa();
             empresa.Nome = txtNome.Text;
+            empresa.Sobrenome = txtSobrenome.Text;
             empresa.DataNascimento = txtData.Text;
             empresa.Estado = comboEstado.SelectedItem.ToString();
             empresa.Telefone = txtTelefone.Text;
+            empresa.Cpf = txtCpf.Text;
             empresa.Nacional = checkNacional.Checked;
             empresa.Multinacional = checkMultinacional.Checked;
             empresa.Segmento = segmento;
@@ -157,9 +161,32 @@ namespace teste
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            int indice = lista.SelectedIndex;
-            listaEmpresa.RemoveAt(indice);
-            Listar();
+            try
+            {
+                int indice = lista.SelectedIndex;
+
+                // Verificar se algum item está selecionado
+                if (indice >= 0)
+                {
+                    // Exibir mensagem de confirmação
+                    DialogResult resultado = MessageBox.Show("Tem certeza que deseja excluir esta empresa?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    // Verificar resposta do usuário
+                    if (resultado == DialogResult.Yes)
+                    {
+                        listaEmpresa.RemoveAt(indice);
+                        Listar();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Selecione uma empresa para excluir.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocorreu um erro: {ex.Message}");
+            }
         }
 
         private void Listar() 
@@ -183,9 +210,11 @@ namespace teste
             Empresa empresa = listaEmpresa[indice];
 
             txtNome.Text = empresa.Nome;
+            txtSobrenome.Text = empresa.Sobrenome;
             txtData.Text = empresa.DataNascimento;
             comboEstado.SelectedItem = empresa.Estado;
             txtTelefone.Text = empresa.Telefone;
+            txtCpf.Text = empresa.Cpf;
             checkMultinacional.Checked = empresa.Multinacional;
             checkNacional.Checked = empresa.Nacional;
 
@@ -201,6 +230,31 @@ namespace teste
                     radioMontadora.Checked = false;
                     break;
             }
+
+        }
+
+        private void txtNome_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cpf_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textCpf_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }
