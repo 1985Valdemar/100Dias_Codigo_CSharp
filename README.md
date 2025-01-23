@@ -139,6 +139,11 @@ private void btnExcluir_Click(object sender, EventArgs e)
 
 ![Captura de tela 2025-01-22 153817](https://github.com/user-attachments/assets/51721841-ca7f-4740-a3f7-ef3aaf837383)
 
+## Dia 15
+- Inserindo Update
+- Atualizado com Try-Catch para tratar possiveis erros
+  <br>
+  ![Captura de tela 2025-01-23 134806](https://github.com/user-attachments/assets/0be5abcc-6d37-41d0-b605-a9baedfc0f90)
 
   
 ## 🔗 Links Úteis
