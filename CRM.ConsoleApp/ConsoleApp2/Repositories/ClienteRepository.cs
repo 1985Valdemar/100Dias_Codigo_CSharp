@@ -128,6 +128,43 @@ namespace ConsoleApp2.Repositories
                 }
             }
         }
+        // Método para atualizar um cliente
+        public void Update(int id, string nome, string sobrenome, string telefone, string cpf)
+        {
+            using (var connection = new NpgsqlConnection(_connectionString))
+            {
+                connection.Open();
+                string query = @"
+            UPDATE Clientes 
+            SET Nome = @Nome, 
+                Sobrenome = @Sobrenome, 
+                Telefone = @Telefone, 
+                Cpf = @Cpf 
+            WHERE Id = @Id";
+
+                using (var command = new NpgsqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Id", id);
+                    command.Parameters.AddWithValue("@Nome", nome);
+                    command.Parameters.AddWithValue("@Sobrenome", sobrenome);
+                    command.Parameters.AddWithValue("@Telefone", telefone);
+                    command.Parameters.AddWithValue("@Cpf", cpf);
+
+                    int rowsAffected = command.ExecuteNonQuery();
+
+                    if (rowsAffected > 0)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        MetodosViews.Mensagem("Cliente atualizado com sucesso.");
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        MetodosViews.Mensagem("Cliente não encontrado.");
+                    }
+                }
+            }
+        }
 
         // Método para obter um cliente pelo CPF
         public Cliente ObterPorCpf(string cpf)

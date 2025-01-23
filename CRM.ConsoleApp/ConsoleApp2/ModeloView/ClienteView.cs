@@ -28,6 +28,7 @@ namespace CRM.ConsoleApp2.Views
                 Console.WriteLine("1. Listar Clientes");
                 Console.WriteLine("2. Cadastrar Novo Cliente");
                 Console.WriteLine("3. Deletar Cliente");
+                Console.WriteLine("4. Atualizar Cliente");
                 Console.WriteLine("0. Sair");
                 Console.Write("Escolha uma opção: ");
                 if (!int.TryParse(Console.ReadLine(), out opcao))
@@ -47,6 +48,9 @@ namespace CRM.ConsoleApp2.Views
                         break;
                     case 3:
                         DeletarCliente();
+                        break;
+                    case 4:
+                        AtualizarCliente();
                         break;
                     case 0:
                         MetodosViews.Mensagem("Saindo...");
@@ -136,6 +140,42 @@ namespace CRM.ConsoleApp2.Views
 
             Console.ForegroundColor = ConsoleColor.Green;
             MetodosViews.Mensagem($"Cliente cadastrado com sucesso! Id: {novoId}");
+        }
+        private void AtualizarCliente()
+        {
+            MetodosViews.Limpar();
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("\nAtualização de Cliente");
+
+            Console.Write("Digite o CPF do cliente a ser atualizado: ");
+            string cpf = Console.ReadLine();
+
+            var cliente = _clienteRepository.ObterPorCpf(cpf);
+
+            if (cliente == null)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                MetodosViews.Mensagem("Cliente não encontrado.");
+                return;
+            }
+
+            Console.Write($"Nome atual ({cliente.Nome}): ");
+            string nome = Console.ReadLine();
+            nome = string.IsNullOrWhiteSpace(nome) ? cliente.Nome : nome;
+
+            Console.Write($"Sobrenome atual ({cliente.Sobrenome}): ");
+            string sobrenome = Console.ReadLine();
+            sobrenome = string.IsNullOrWhiteSpace(sobrenome) ? cliente.Sobrenome : sobrenome;
+
+            Console.Write($"Telefone atual ({cliente.Telefone}): ");
+            string telefone = Console.ReadLine();
+            telefone = string.IsNullOrWhiteSpace(telefone) ? cliente.Telefone : telefone;
+
+            Console.Write($"CPF atual ({cliente.Cpf}): ");
+            string novoCpf = Console.ReadLine();
+            novoCpf = string.IsNullOrWhiteSpace(novoCpf) ? cliente.Cpf : novoCpf;
+
+            _clienteRepository.Update(cliente.Id, nome, sobrenome, telefone, novoCpf);
         }
     }
 }
