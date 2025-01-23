@@ -131,39 +131,98 @@ namespace ConsoleApp2.Repositories
         // Método para atualizar um cliente
         public void Update(int id, string nome, string sobrenome, string telefone, string cpf)
         {
-            using (var connection = new NpgsqlConnection(_connectionString))
+            // Validações de entrada
+            if (!ValidarNome(nome))
             {
-                connection.Open();
-                string query = @"
-            UPDATE Clientes 
-            SET Nome = @Nome, 
-                Sobrenome = @Sobrenome, 
-                Telefone = @Telefone, 
-                Cpf = @Cpf 
-            WHERE Id = @Id";
+                Console.ForegroundColor = ConsoleColor.Red;
+                MetodosViews.Mensagem("Nome inválido. Deve conter apenas letras.");
+                return;
+            }
 
-                using (var command = new NpgsqlCommand(query, connection))
+            if (!ValidarNome(sobrenome))
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                MetodosViews.Mensagem("Sobrenome inválido. Deve conter apenas letras.");
+                return;
+            }
+
+            if (!ValidarTelefone(telefone))
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                MetodosViews.Mensagem("Telefone inválido. Deve conter apenas números.");
+                return;
+            }
+
+            if (!ValidarCpf(cpf))
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                MetodosViews.Mensagem("CPF inválido. Deve conter apenas números.");
+                return;
+            }
+
+            // Código de atualização no banco de dados
+            try
+            {
+                using (var connection = new NpgsqlConnection(_connectionString))
                 {
-                    command.Parameters.AddWithValue("@Id", id);
-                    command.Parameters.AddWithValue("@Nome", nome);
-                    command.Parameters.AddWithValue("@Sobrenome", sobrenome);
-                    command.Parameters.AddWithValue("@Telefone", telefone);
-                    command.Parameters.AddWithValue("@Cpf", cpf);
+                    connection.Open();
+                    string query = @"
+                UPDATE Clientes 
+                SET Nome = @Nome, 
+                    Sobrenome = @Sobrenome, 
+                    Telefone = @Telefone, 
+                    Cpf = @Cpf 
+                WHERE Id = @Id";
 
-                    int rowsAffected = command.ExecuteNonQuery();
+                    using (var command = new NpgsqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@Id", id);
+                        command.Parameters.AddWithValue("@Nome", nome);
+                        command.Parameters.AddWithValue("@Sobrenome", sobrenome);
+                        command.Parameters.AddWithValue("@Telefone", telefone);
+                        command.Parameters.AddWithValue("@Cpf", cpf);
 
-                    if (rowsAffected > 0)
-                    {
-                        Console.ForegroundColor = ConsoleColor.Green;
-                        MetodosViews.Mensagem("Cliente atualizado com sucesso.");
-                    }
-                    else
-                    {
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        MetodosViews.Mensagem("Cliente não encontrado.");
+                        int rowsAffected = command.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            Console.ForegroundColor = ConsoleColor.Green;
+                            MetodosViews.Mensagem("Cliente atualizado com sucesso.");
+                        }
+                        else
+                        {
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            MetodosViews.Mensagem("Cliente não encontrado.");
+                        }
                     }
                 }
             }
+            catch (NpgsqlException ex)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                MetodosViews.Mensagem($"Erro de banco de dados: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                MetodosViews.Mensagem($"Erro inesperado: {ex.Message}");
+            }
+        }
+
+        // Métodos de validação
+        private bool ValidarNome(string nome)
+        {
+            return nome.All(char.IsLetter);
+        }
+
+        private bool ValidarTelefone(string telefone)
+        {
+            return telefone.All(char.IsDigit);
+        }
+
+        private bool ValidarCpf(string cpf)
+        {
+            return cpf.All(char.IsDigit);
         }
 
         // Método para obter um cliente pelo CPF
