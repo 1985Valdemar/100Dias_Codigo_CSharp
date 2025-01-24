@@ -145,6 +145,12 @@ private void btnExcluir_Click(object sender, EventArgs e)
   <br>
   ![Captura de tela 2025-01-23 134806](https://github.com/user-attachments/assets/0be5abcc-6d37-41d0-b605-a9baedfc0f90)
 
+## Dia 16
+- Melhorado Performace codigo crud
+- Organizado para melhorar manutenção
+- Segurança uso parametros sql minimiza invasão
+
+
   
 ## 🔗 Links Úteis
 
