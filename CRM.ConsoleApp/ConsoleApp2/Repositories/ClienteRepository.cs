@@ -3,6 +3,7 @@ using ConsoleApp2.Modelos;
 using Npgsql;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ConsoleApp2.Repositories
 {
@@ -55,29 +56,69 @@ namespace ConsoleApp2.Repositories
             }
         }
 
-        // Método para obter todos os clientes
-        public List<Cliente> ObterTodos()
+        // Método para obter todos os clientes com paginação
+        public List<Cliente> ObterTodos(int pageNumber = 1, int pageSize = 10)
+        {
+            var clientes = new List<Cliente>();
+            int offset = (pageNumber - 1) * pageSize;
+
+            using (var connection = new NpgsqlConnection(_connectionString))
+            {
+                connection.Open();
+                string query = "SELECT Id, Nome, Sobrenome, Telefone, Cpf FROM Clientes ORDER BY Id LIMIT @PageSize OFFSET @Offset";
+
+                using (var command = new NpgsqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@PageSize", pageSize);
+                    command.Parameters.AddWithValue("@Offset", offset);
+
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            clientes.Add(new Cliente
+                            {
+                                Id = reader.GetInt32(0),
+                                Nome = reader.GetString(1),
+                                Sobrenome = reader.GetString(2),
+                                Telefone = reader.GetString(3),
+                                Cpf = reader.GetString(4)
+                            });
+                        }
+                    }
+                }
+            }
+
+            return clientes;
+        }
+
+        // Método para buscar clientes por nome ou CPF
+        public List<Cliente> Buscar(string termo)
         {
             var clientes = new List<Cliente>();
 
             using (var connection = new NpgsqlConnection(_connectionString))
             {
                 connection.Open();
-                string query = "SELECT Id, Nome, Sobrenome, Telefone, Cpf FROM Clientes";
+                string query = "SELECT Id, Nome, Sobrenome, Telefone, Cpf FROM Clientes WHERE Nome ILIKE @Termo OR Cpf = @Termo";
 
                 using (var command = new NpgsqlCommand(query, connection))
-                using (var reader = command.ExecuteReader())
                 {
-                    while (reader.Read())
+                    command.Parameters.AddWithValue("@Termo", "%" + termo + "%");
+
+                    using (var reader = command.ExecuteReader())
                     {
-                        clientes.Add(new Cliente
+                        while (reader.Read())
                         {
-                            Id = reader.GetInt32(0),
-                            Nome = reader.GetString(1),
-                            Sobrenome = reader.GetString(2),
-                            Telefone = reader.GetString(3),
-                            Cpf = reader.GetString(4)
-                        });
+                            clientes.Add(new Cliente
+                            {
+                                Id = reader.GetInt32(0),
+                                Nome = reader.GetString(1),
+                                Sobrenome = reader.GetString(2),
+                                Telefone = reader.GetString(3),
+                                Cpf = reader.GetString(4)
+                            });
+                        }
                     }
                 }
             }
@@ -86,9 +127,9 @@ namespace ConsoleApp2.Repositories
         }
 
         // Método para exibir todos os clientes no console
-        public void ExibirClientes()
+        public void ExibirClientes(int pageNumber = 1)
         {
-            var clientes = ObterTodos();
+            var clientes = ObterTodos(pageNumber);
             if (clientes.Count > 0)
             {
                 foreach (var cliente in clientes)
@@ -128,6 +169,7 @@ namespace ConsoleApp2.Repositories
                 }
             }
         }
+
         // Método para atualizar um cliente
         public void Update(int id, string nome, string sobrenome, string telefone, string cpf)
         {
@@ -160,19 +202,18 @@ namespace ConsoleApp2.Repositories
                 return;
             }
 
-            // Código de atualização no banco de dados
             try
             {
                 using (var connection = new NpgsqlConnection(_connectionString))
                 {
                     connection.Open();
                     string query = @"
-                UPDATE Clientes 
-                SET Nome = @Nome, 
-                    Sobrenome = @Sobrenome, 
-                    Telefone = @Telefone, 
-                    Cpf = @Cpf 
-                WHERE Id = @Id";
+                        UPDATE Clientes 
+                        SET Nome = @Nome, 
+                            Sobrenome = @Sobrenome, 
+                            Telefone = @Telefone, 
+                            Cpf = @Cpf 
+                        WHERE Id = @Id";
 
                     using (var command = new NpgsqlCommand(query, connection))
                     {
@@ -255,6 +296,7 @@ namespace ConsoleApp2.Repositories
                     }
                 }
             }
+
             return cliente;
         }
     }
