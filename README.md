@@ -154,6 +154,13 @@ private void btnExcluir_Click(object sender, EventArgs e)
 - Criado Projeto MVC Model View Controller
 - Falta otimizar pagina para comunicar projeto
 
+## Dia 18
+- Atualizado projeto tentado reutilizar projeto já criado mas deu vários conflitos
+- Tendo que iniciar do Zero mas funcionou vamos atualizando aos poucos nem todo dia Vencemos
+<br>
+<img src="https://github.com/user-attachments/assets/066506ce-b377-4ce5-98e6-e6adb2aa9be7" height="300" width="600">
+
+
   
 ## 🔗 Links Úteis
 
