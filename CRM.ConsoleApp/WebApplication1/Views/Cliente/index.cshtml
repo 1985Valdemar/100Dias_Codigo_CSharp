@@ -1,0 +1,46 @@
+﻿@model List<WebApplication1.Models.Cliente>
+
+<h1>Lista de Clientes</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Sobrenome</th>
+            <th>Telefone</th>
+            <th>CPF</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Any())
+        {
+            foreach (var cliente in Model)
+            {
+                <tr>
+                    <td>@cliente.Id</td>
+                    <td>@cliente.Nome</td>
+                    <td>@cliente.Sobrenome</td>
+                    <td>@cliente.Telefone</td>
+                    <td>@cliente.Cpf</td>
+                    <td>
+                        <a href="@Url.Action("Edit", "Cliente", new { id = cliente.Id })">Editar</a> |
+                        <form asp-action="Delete" method="post" style="display:inline;">
+                            <input type="hidden" name="cpf" value="@cliente.Cpf" />
+                            <button type="submit">Deletar</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="6">Nenhum cliente encontrado.</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="@Url.Action("Create", "Cliente")">Cadastrar Novo Cliente</a>

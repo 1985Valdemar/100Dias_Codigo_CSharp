@@ -4,24 +4,12 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <UserSecretsId>89678c0c-ae7f-4d26-9d0f-e69acd27d8c1</UserSecretsId>
+    <UserSecretsId>6d468442-cf81-48d8-bf86-45f281a5ca7f</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="Views\Cliente\index.cshtml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Include="Views\Cliente\index.cshtml" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\ConsoleApp2\ConsoleApp2.csproj" />
   </ItemGroup>
 
 </Project>

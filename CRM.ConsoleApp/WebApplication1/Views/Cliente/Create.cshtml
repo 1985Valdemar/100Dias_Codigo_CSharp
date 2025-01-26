@@ -1,0 +1,21 @@
+﻿@model WebApplication1.Models.Cliente
+
+<h1>Cadastrar Novo Cliente</h1>
+
+<form asp-action="Create" method="post">
+    <label>Nome:</label><br />
+    <input type="text" asp-for="Nome" required /><br />
+
+    <label>Sobrenome:</label><br />
+    <input type="text" asp-for="Sobrenome" required /><br />
+
+    <label>Telefone:</label><br />
+    <input type="text" asp-for="Telefone" required /><br />
+
+    <label>CPF:</label><br />
+    <input type="text" asp-for="Cpf" required /><br />
+
+    <button type="submit">Cadastrar</button>
+</form>
+
+<a href="@Url.Action("Index")">Voltar</a>

@@ -1,20 +1,22 @@
-﻿using ConsoleApp2.Common;
-using ConsoleApp2.Modelos;
+﻿using WebApplication1.Models; // Certifique-se de que o namespace está correto.
+using Microsoft.Extensions.Configuration;
 using Npgsql;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
-namespace ConsoleApp2.Repositories
+namespace WebApplication1.Repositories
 {
     public class ClienteRepository
     {
+        private readonly string _connectionString;
 
+        public ClienteRepository(IConfiguration configuration)
+        {
+            _connectionString = configuration.GetConnectionString("DefaultConnection");
+            CriarTabela(); // Garante que a tabela será criada ao instanciar o repositório.
+        }
 
-
-        private string _connectionString = "Host=localhost;Port=5432;Username=postgres;Password=1234;Database=Pratica1";
-
-        // Método para criar a tabela Clientes, caso não exista
+        // Método para criar a tabela Clientes, caso não exista.
         public void CriarTabela()
         {
             using (var connection = new NpgsqlConnection(_connectionString))
@@ -33,12 +35,12 @@ namespace ConsoleApp2.Repositories
                 {
                     command.ExecuteNonQuery();
                     Console.ForegroundColor = ConsoleColor.DarkGray;
-                    MetodosViews.Mensagem("Tabela 'Clientes' criada ou já existe.");
+                    Console.WriteLine("Tabela 'Clientes' criada ou já existe.");
                 }
             }
         }
 
-        // Método para criar um cliente no banco
+        // Método para criar um cliente no banco.
         public int Create(string nome, string sobrenome, string telefone, string cpf)
         {
             using (var connection = new NpgsqlConnection(_connectionString))
@@ -53,13 +55,12 @@ namespace ConsoleApp2.Repositories
                     command.Parameters.AddWithValue("@Telefone", telefone);
                     command.Parameters.AddWithValue("@Cpf", cpf);
 
-                    // Retorna o ID gerado pelo banco de dados
-                    return (int)command.ExecuteScalar();
+                    return (int)command.ExecuteScalar(); // Retorna o ID gerado pelo banco de dados.
                 }
             }
         }
 
-        // Método para obter todos os clientes com paginação
+        // Método para obter todos os clientes com paginação.
         public List<Cliente> ObterTodos(int pageNumber = 1, int pageSize = 10)
         {
             var clientes = new List<Cliente>();
@@ -95,7 +96,7 @@ namespace ConsoleApp2.Repositories
             return clientes;
         }
 
-        // Método para buscar clientes por nome ou CPF
+        // Método para buscar clientes por nome ou CPF.
         public List<Cliente> Buscar(string termo)
         {
             var clientes = new List<Cliente>();
@@ -129,24 +130,7 @@ namespace ConsoleApp2.Repositories
             return clientes;
         }
 
-        // Método para exibir todos os clientes no console
-        public void ExibirClientes(int pageNumber = 1)
-        {
-            var clientes = ObterTodos(pageNumber);
-            if (clientes.Count > 0)
-            {
-                foreach (var cliente in clientes)
-                {
-                    Console.WriteLine($"Id: {cliente.Id}, Nome: {cliente.Nome}, Sobrenome: {cliente.Sobrenome}, Telefone: {cliente.Telefone}, CPF: {cliente.Cpf}");
-                }
-            }
-            else
-            {
-                Console.WriteLine("Nenhum cliente encontrado.");
-            }
-        }
-
-        // Método para deletar um cliente pelo CPF
+        // Método para deletar um cliente pelo CPF.
         public void Delete(string cpf)
         {
             using (var connection = new NpgsqlConnection(_connectionString))
@@ -162,49 +146,20 @@ namespace ConsoleApp2.Repositories
                     if (rowsAffected > 0)
                     {
                         Console.ForegroundColor = ConsoleColor.Green;
-                        MetodosViews.Mensagem("Cliente deletado com sucesso.");
+                        Console.WriteLine("Cliente deletado com sucesso.");
                     }
                     else
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
-                        MetodosViews.Mensagem("Cliente não encontrado.");
+                        Console.WriteLine("Cliente não encontrado.");
                     }
                 }
             }
         }
 
-        // Método para atualizar um cliente
+        // Método para atualizar um cliente.
         public void Update(int id, string nome, string sobrenome, string telefone, string cpf)
         {
-            // Validações de entrada
-            if (!ValidarNome(nome))
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                MetodosViews.Mensagem("Nome inválido. Deve conter apenas letras.");
-                return;
-            }
-
-            if (!ValidarNome(sobrenome))
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                MetodosViews.Mensagem("Sobrenome inválido. Deve conter apenas letras.");
-                return;
-            }
-
-            if (!ValidarTelefone(telefone))
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                MetodosViews.Mensagem("Telefone inválido. Deve conter apenas números.");
-                return;
-            }
-
-            if (!ValidarCpf(cpf))
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                MetodosViews.Mensagem("CPF inválido. Deve conter apenas números.");
-                return;
-            }
-
             try
             {
                 using (var connection = new NpgsqlConnection(_connectionString))
@@ -212,9 +167,9 @@ namespace ConsoleApp2.Repositories
                     connection.Open();
                     string query = @"
                         UPDATE Clientes 
-                        SET Nome = @Nome, 
-                            Sobrenome = @Sobrenome, 
-                            Telefone = @Telefone, 
+                        SET Nome = @Nome,
+                            Sobrenome = @Sobrenome,
+                            Telefone = @Telefone,
                             Cpf = @Cpf 
                         WHERE Id = @Id";
 
@@ -231,12 +186,12 @@ namespace ConsoleApp2.Repositories
                         if (rowsAffected > 0)
                         {
                             Console.ForegroundColor = ConsoleColor.Green;
-                            MetodosViews.Mensagem("Cliente atualizado com sucesso.");
+                            Console.WriteLine("Cliente atualizado com sucesso.");
                         }
                         else
                         {
                             Console.ForegroundColor = ConsoleColor.Red;
-                            MetodosViews.Mensagem("Cliente não encontrado.");
+                            Console.WriteLine("Cliente não encontrado.");
                         }
                     }
                 }
@@ -244,32 +199,23 @@ namespace ConsoleApp2.Repositories
             catch (NpgsqlException ex)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                MetodosViews.Mensagem($"Erro de banco de dados: {ex.Message}");
+                Console.WriteLine($"Erro de banco de dados: {ex.Message}");
             }
             catch (Exception ex)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                MetodosViews.Mensagem($"Erro inesperado: {ex.Message}");
+                Console.WriteLine($"Erro inesperado: {ex.Message}");
             }
         }
 
-        // Métodos de validação
-        private bool ValidarNome(string nome)
-        {
-            return nome.All(char.IsLetter);
-        }
+        // Métodos de validação.
+        private bool ValidarNome(string nome) => nome.All(char.IsLetter);
 
-        private bool ValidarTelefone(string telefone)
-        {
-            return telefone.All(char.IsDigit);
-        }
+        private bool ValidarTelefone(string telefone) => telefone.All(char.IsDigit);
 
-        private bool ValidarCpf(string cpf)
-        {
-            return cpf.All(char.IsDigit);
-        }
+        private bool ValidarCpf(string cpf) => cpf.All(char.IsDigit);
 
-        // Método para obter um cliente pelo CPF
+        // Método para obter um cliente pelo CPF.
         public Cliente ObterPorCpf(string cpf)
         {
             Cliente cliente = null;
@@ -301,11 +247,6 @@ namespace ConsoleApp2.Repositories
             }
 
             return cliente;
-        }
-
-        public string? ObterPorId(int id)
-        {
-            throw new NotImplementedException();
         }
     }
 }
