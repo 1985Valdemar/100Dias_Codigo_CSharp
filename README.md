@@ -150,6 +150,9 @@ private void btnExcluir_Click(object sender, EventArgs e)
 - Organizado para melhorar manutenção
 - Segurança uso parametros sql minimiza invasão
 
+## Dia 17
+- Criado Projeto MVC Model View Controller
+- Falta otimizar pagina para comunicar projeto
 
   
 ## 🔗 Links Úteis
