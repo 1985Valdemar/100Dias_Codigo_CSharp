@@ -28,6 +28,8 @@
         </div>
 
         <button type="submit" class="btn btn-primary">Enviar</button>
+        <button type="button" class="btn btn-primary" id="editarBtn">Editar</button>
+        <button type="button" class="btn btn-primary" id="deletarBtn">Deletar</button>
     </form>
 </div>
 
@@ -37,23 +39,34 @@
         var nome = document.getElementById('nome');
         var cpf = document.getElementById('cpf');
 
-        // Verifica se o campo Nome está vazio
         if (!nome.value) {
-            nome.classList.add('is-invalid'); // Adiciona a classe de erro
+            nome.classList.add('is-invalid');
         } else {
-            nome.classList.remove('is-invalid'); // Remove a classe de erro se preenchido
+            nome.classList.remove('is-invalid');
         }
 
-        // Verifica se o campo CPF está vazio
         if (!cpf.value) {
-            cpf.classList.add('is-invalid'); // Adiciona a classe de erro
+            cpf.classList.add('is-invalid');
         } else {
-            cpf.classList.remove('is-invalid'); // Remove a classe de erro se preenchido
+            cpf.classList.remove('is-invalid');
         }
 
-        // Se algum campo obrigatório estiver vazio, previne o envio do formulário
         if (!nome.value || !cpf.value) {
-            event.preventDefault(); // Impede o envio do formulário
+            event.preventDefault();
+        }
+    });
+
+    // Função para editar cadastro
+    document.getElementById('editarBtn').addEventListener('click', function () {
+        // Aqui você pode implementar a lógica para editar o cadastro
+        alert("Função de editar cadastro não implementada.");
+    });
+
+    // Função para deletar cadastro
+    document.getElementById('deletarBtn').addEventListener('click', function () {
+        if (confirm("Tem certeza que deseja deletar este cadastro?")) {
+            // Aqui você pode implementar a lógica para deletar o cadastro
+            alert("Cadastro deletado.");
         }
     });
 </script>

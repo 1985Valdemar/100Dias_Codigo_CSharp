@@ -1,0 +1,32 @@
+﻿@model IEnumerable<WebApplication2.Models.Usuario>
+
+<h1>Lista de Usuários</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Sobrenome</th>
+            <th>CPF</th>
+            <th>Telefone</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var usuario in Model)
+        {
+            <tr>
+                <td>@usuario.Nome</td>
+                <td>@usuario.Sobrenome</td>
+                <td>@usuario.CPF</td>
+                <td>@usuario.Telefone</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@usuario.Id">Editar</a> |
+                    <a asp-action="Delete" asp-route-id="@usuario.Id">Deletar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Create">Criar Novo Usuário</a>
