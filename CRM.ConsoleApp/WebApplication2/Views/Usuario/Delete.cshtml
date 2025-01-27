@@ -1,0 +1,19 @@
+﻿@model WebApplication2.Models.Usuario
+
+<h1>Deletar Usuário</h1>
+
+<h3>Tem certeza que deseja deletar este usuário?</h3>
+
+<div>
+    Nome: @Model.Nome<br />
+    Sobrenome: @Model.Sobrenome<br />
+    CPF: @Model.CPF<br />
+    Telefone: @Model.Telefone
+</div>
+
+<form asp-action="Delete">
+    @Html.HiddenFor(model => model.Id)
+    <button type="submit" class="btn btn-danger">Deletar</button>
+</form>
+
+<a asp-action="Index">Voltar à Lista</a>
