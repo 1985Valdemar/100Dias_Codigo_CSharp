@@ -4,24 +4,62 @@
 <div class="container">
     <h1 class="mb-4">Cadastro Cliente</h1>
 
-    <div class="form-group mb-3">
-        <label for="nome">Nome:</label>
-        <input type="text" class="form-control" id="nome" placeholder="Digite seu nome">
-    </div>
+    <form id="cadastroForm">
+        <div class="form-group mb-3">
+            <label for="nome">Nome:</label>
+            <input type="text" class="form-control col-md-4" id="nome" placeholder="Digite seu nome" required>
+            <div class="invalid-feedback">NOME OBRIGATÓRIO</div>
+        </div>
 
-    <div class="form-group mb-3">
-        <label for="sobrenome">Sobrenome:</label>
-        <input type="text" class="form-control" id="sobrenome" placeholder="Digite seu sobrenome">
-    </div>
+        <div class="form-group mb-3">
+            <label for="sobrenome">Sobrenome:</label>
+            <input type="text" class="form-control col-md-4" id="sobrenome" placeholder="Digite seu sobrenome">
+        </div>
 
-    <div class="form-group mb-3">
-        <label for="cpf">CPF:</label>
-        <input type="text" class="form-control" id="cpf" placeholder="Digite seu CPF">
-    </div>
+        <div class="form-group mb-3">
+            <label for="cpf">CPF:</label>
+            <input type="text" class="form-control col-md-4" id="cpf" placeholder="Digite seu CPF" required>
+            <div class="invalid-feedback">CPF OBRIGATÓRIO</div>
+        </div>
 
-    <div class="form-group mb-3">
-        <label for="telefone">Telefone:</label>
-        <input type="text" class="form-control" id="telefone" placeholder="Digite seu telefone">
-    </div>
+        <div class="form-group mb-3">
+            <label for="telefone">Telefone:</label>
+            <input type="text" class="form-control col-md-4" id="telefone" placeholder="Digite seu telefone">
+        </div>
 
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
 </div>
+
+<script>
+    // Validação do formulário
+    document.getElementById('cadastroForm').addEventListener('submit', function (event) {
+        var nome = document.getElementById('nome');
+        var cpf = document.getElementById('cpf');
+
+        // Verifica se o campo Nome está vazio
+        if (!nome.value) {
+            nome.classList.add('is-invalid'); // Adiciona a classe de erro
+        } else {
+            nome.classList.remove('is-invalid'); // Remove a classe de erro se preenchido
+        }
+
+        // Verifica se o campo CPF está vazio
+        if (!cpf.value) {
+            cpf.classList.add('is-invalid'); // Adiciona a classe de erro
+        } else {
+            cpf.classList.remove('is-invalid'); // Remove a classe de erro se preenchido
+        }
+
+        // Se algum campo obrigatório estiver vazio, previne o envio do formulário
+        if (!nome.value || !cpf.value) {
+            event.preventDefault(); // Impede o envio do formulário
+        }
+    });
+</script>
+
+<style>
+    .input-pequeno {
+        width: 200px; /* Ajuste o valor conforme necessário */
+    }
+</style>
