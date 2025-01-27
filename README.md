@@ -160,6 +160,12 @@ private void btnExcluir_Click(object sender, EventArgs e)
 <br>
 <img src="https://github.com/user-attachments/assets/066506ce-b377-4ce5-98e6-e6adb2aa9be7" height="300" width="600">
 
+## Dia 19
+- Configurado CRUD mas nao funcionou ainda mas vai
+- tive varios desafios como conlfito de atualizar mas agora estou guase la em fazer os parametro
+ <br>
+<img src="https://github.com/user-attachments/assets/421597b2-a776-44e8-a988-8e2c216c4503" height="300" width="600">
+
 
   
 ## 🔗 Links Úteis
