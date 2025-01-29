@@ -166,6 +166,9 @@ private void btnExcluir_Click(object sender, EventArgs e)
  <br>
 <img src="https://github.com/user-attachments/assets/421597b2-a776-44e8-a988-8e2c216c4503" height="300" width="600">
 
+## Dia 20
+- Tentado salvar dados mas sem sucesso
+- Bora tentar novamente
 
   
 ## 🔗 Links Úteis
