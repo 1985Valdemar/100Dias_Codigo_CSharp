@@ -169,6 +169,10 @@ private void btnExcluir_Click(object sender, EventArgs e)
 ## Dia 20
 - Tentado salvar dados mas sem sucesso
 - Bora tentar novamente
+  
+## Dia 21
+- Deu tudo errado tem rever projeto nao esta salvando dados
+  
 
   
 ## 🔗 Links Úteis
