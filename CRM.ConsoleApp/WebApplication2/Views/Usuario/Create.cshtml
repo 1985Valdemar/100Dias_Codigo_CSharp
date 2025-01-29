@@ -2,7 +2,17 @@
 
 <h1>Criar Usuário</h1>
 
-<form asp-action="Create">
+@if (ViewData.ModelState.ErrorCount > 0)
+{
+    <div class="alert alert-danger">
+        @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+        {
+            <p>@error.ErrorMessage</p>
+        }
+    </div>
+}
+
+<form asp-action="Create" method="post">
     <div class="form-group">
         <label asp-for="Nome"></label>
         <input asp-for="Nome" class="form-control" />

@@ -34,9 +34,46 @@ namespace WebApplication2.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(usuario);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                try
+                {
+                    _context.Add(usuario);
+                    await _context.SaveChangesAsync();
+                    Console.WriteLine("Usuário salvo com sucesso!"); // Log para debug
+                    return RedirectToAction(nameof(Index));
+                }
+                catch (DbUpdateException dbEx)
+                {
+                    Console.WriteLine("DbUpdateException: " + dbEx.Message);
+                    if (dbEx.InnerException != null)
+                    {
+                        Console.WriteLine("InnerException: " + dbEx.InnerException.Message);
+                        if (dbEx.InnerException.Message.Contains("could not connect"))
+                        {
+                            ModelState.AddModelError("", "Erro ao salvar os dados: Banco de dados não encontrado.");
+                        }
+                        else
+                        {
+                            ModelState.AddModelError("", "Erro ao salvar os dados: " + dbEx.InnerException.Message);
+                        }
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Erro ao salvar os dados: " + dbEx.Message);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Exception: " + ex.Message);
+                    ModelState.AddModelError("", "Erro ao salvar os dados: " + ex.Message);
+                }
+            }
+            else
+            {
+                Console.WriteLine("Erro no ModelState");
+                foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
+                {
+                    Console.WriteLine(error.ErrorMessage);
+                }
             }
             return View(usuario);
         }
@@ -73,6 +110,7 @@ namespace WebApplication2.Controllers
                 {
                     _context.Update(usuario);
                     await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -85,7 +123,10 @@ namespace WebApplication2.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError("", "Erro ao atualizar os dados: " + ex.Message);
+                }
             }
             return View(usuario);
         }
@@ -113,6 +154,11 @@ namespace WebApplication2.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var usuario = await _context.Usuarios.FindAsync(id);
+            if (usuario == null)
+            {
+                return NotFound();
+            }
+
             _context.Usuarios.Remove(usuario);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
