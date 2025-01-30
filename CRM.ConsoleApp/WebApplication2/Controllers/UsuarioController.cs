@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using WebApplication2.Data;
 using WebApplication2.Models;
 
 namespace WebApplication2.Controllers
@@ -34,6 +33,48 @@ namespace WebApplication2.Controllers
         {
             if (ModelState.IsValid)  // Verifica se o modelo está válido
             {
+<<<<<<< HEAD
+                try
+                {
+                    _context.Add(usuario);
+                    await _context.SaveChangesAsync();
+                    Console.WriteLine("Usuário salvo com sucesso!"); // Log para debug
+                    return RedirectToAction(nameof(Index));
+                }
+                catch (DbUpdateException dbEx)
+                {
+                    Console.WriteLine("DbUpdateException: " + dbEx.Message);
+                    if (dbEx.InnerException != null)
+                    {
+                        Console.WriteLine("InnerException: " + dbEx.InnerException.Message);
+                        if (dbEx.InnerException.Message.Contains("could not connect"))
+                        {
+                            ModelState.AddModelError("", "Erro ao salvar os dados: Banco de dados não encontrado.");
+                        }
+                        else
+                        {
+                            ModelState.AddModelError("", "Erro ao salvar os dados: " + dbEx.InnerException.Message);
+                        }
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Erro ao salvar os dados: " + dbEx.Message);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Exception: " + ex.Message);
+                    ModelState.AddModelError("", "Erro ao salvar os dados: " + ex.Message);
+                }
+            }
+            else
+            {
+                Console.WriteLine("Erro no ModelState");
+                foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
+                {
+                    Console.WriteLine(error.ErrorMessage);
+                }
+=======
                 // Verifica se o CPF já existe na base
                 if (_context.Usuarios.Any(u => u.CPF == usuario.CPF))
                 {
@@ -44,6 +85,7 @@ namespace WebApplication2.Controllers
                 _context.Add(usuario);  // Adiciona o novo usuário ao contexto
                 await _context.SaveChangesAsync();  // Salva as alterações no banco
                 return RedirectToAction(nameof(Index));  // Redireciona para a lista de usuários
+>>>>>>> main
             }
 
             return View(usuario);  // Retorna a view com o usuário em caso de erro
@@ -79,8 +121,14 @@ namespace WebApplication2.Controllers
             {
                 try
                 {
+<<<<<<< HEAD
+                    _context.Update(usuario);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+=======
                     _context.Update(usuario);  // Atualiza o usuário no contexto
                     await _context.SaveChangesAsync();  // Salva as alterações no banco
+>>>>>>> main
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -93,7 +141,14 @@ namespace WebApplication2.Controllers
                         throw;  // Lança exceção caso haja erro na atualização
                     }
                 }
+<<<<<<< HEAD
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError("", "Erro ao atualizar os dados: " + ex.Message);
+                }
+=======
                 return RedirectToAction(nameof(Index));  // Redireciona para a lista de usuários
+>>>>>>> main
             }
             return View(usuario);  // Retorna a view de edição com erros
         }
@@ -124,12 +179,21 @@ namespace WebApplication2.Controllers
             var usuario = await _context.Usuarios.FindAsync(id);
             if (usuario == null)
             {
+<<<<<<< HEAD
+                return NotFound();
+            }
+
+            _context.Usuarios.Remove(usuario);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+=======
                 return NotFound();  // Retorna erro se o usuário não for encontrado
             }
 
             _context.Usuarios.Remove(usuario);  // Remove o usuário do contexto
             await _context.SaveChangesAsync();  // Salva as alterações no banco
             return RedirectToAction(nameof(Index));  // Redireciona para a lista de usuários
+>>>>>>> main
         }
 
         private bool UsuarioExists(int id)

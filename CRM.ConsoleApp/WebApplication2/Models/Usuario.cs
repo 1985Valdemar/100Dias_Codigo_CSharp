@@ -10,6 +10,17 @@ namespace WebApplication2.Models
         public int Id { get; set; }
 
         [Required]
+<<<<<<< HEAD
+        public string? Nome { get; set; } 
+
+        [Required]
+        public string? Sobrenome { get; set; } 
+
+        [Required]
+        public string? CPF { get; set; } 
+
+        public string? Telefone { get; set; } 
+=======
         public string Nome { get; set; } = string.Empty;  // Garantir que tenha um valor inicial
 
         [Required]
@@ -20,5 +31,6 @@ namespace WebApplication2.Models
 
         [Required]
         public string Telefone { get; set; } = string.Empty;  // Garantir que tenha um valor inicial
+>>>>>>> main
     }
 }

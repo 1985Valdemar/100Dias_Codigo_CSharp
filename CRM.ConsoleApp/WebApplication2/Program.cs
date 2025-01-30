@@ -1,5 +1,8 @@
 using Microsoft.EntityFrameworkCore;
+<<<<<<< HEAD
+=======
 using WebApplication2.Data;
+>>>>>>> main
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +12,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 // Adiciona os controladores e views para o MVC
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var app = builder.Build();
 
