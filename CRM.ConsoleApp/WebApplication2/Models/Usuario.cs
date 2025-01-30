@@ -8,14 +8,14 @@ namespace WebApplication2.Models
         public int Id { get; set; }
 
         [Required]
-        public string Nome { get; set; }
+        public string? Nome { get; set; } 
 
         [Required]
-        public string Sobrenome { get; set; }
+        public string? Sobrenome { get; set; } 
 
         [Required]
-        public string CPF { get; set; }
+        public string? CPF { get; set; } 
 
-        public string Telefone { get; set; }
+        public string? Telefone { get; set; } 
     }
 }

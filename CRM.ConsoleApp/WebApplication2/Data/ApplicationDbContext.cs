@@ -1,15 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using WebApplication2.Models;
 
-namespace WebApplication2.Data
+public class ApplicationDbContext : DbContext
 {
-    public class ApplicationDbContext : DbContext
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        : base(options)
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-            : base(options)
-        {
-        }
-
-        public DbSet<Usuario> Usuarios { get; set; } // Exemplo de uma entidade chamada Usuario
     }
+
+    public DbSet<Usuario> Usuarios { get; set; }
 }
