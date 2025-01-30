@@ -31,8 +31,9 @@ namespace WebApplication2.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Nome,Sobrenome,CPF,Telefone")] Usuario usuario)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid)  // Verifica se o modelo está válido
             {
+<<<<<<< HEAD
                 try
                 {
                     _context.Add(usuario);
@@ -73,8 +74,21 @@ namespace WebApplication2.Controllers
                 {
                     Console.WriteLine(error.ErrorMessage);
                 }
+=======
+                // Verifica se o CPF já existe na base
+                if (_context.Usuarios.Any(u => u.CPF == usuario.CPF))
+                {
+                    ModelState.AddModelError("CPF", "Já existe um usuário com esse CPF.");
+                    return View(usuario);  // Retorna à view com a mensagem de erro
+                }
+
+                _context.Add(usuario);  // Adiciona o novo usuário ao contexto
+                await _context.SaveChangesAsync();  // Salva as alterações no banco
+                return RedirectToAction(nameof(Index));  // Redireciona para a lista de usuários
+>>>>>>> main
             }
-            return View(usuario);
+
+            return View(usuario);  // Retorna a view com o usuário em caso de erro
         }
 
         // GET: Usuarios/Edit/5
@@ -82,15 +96,15 @@ namespace WebApplication2.Controllers
         {
             if (id == null)
             {
-                return NotFound();
+                return NotFound();  // Retorna erro se o ID não for fornecido
             }
 
             var usuario = await _context.Usuarios.FindAsync(id);
             if (usuario == null)
             {
-                return NotFound();
+                return NotFound();  // Retorna erro se o usuário não for encontrado
             }
-            return View(usuario);
+            return View(usuario);  // Retorna a view de edição
         }
 
         // POST: Usuarios/Edit/5
@@ -98,36 +112,45 @@ namespace WebApplication2.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Sobrenome,CPF,Telefone")] Usuario usuario)
         {
-            if (id != usuario.Id)
+            if (id != usuario.Id)  // Verifica se o ID corresponde ao usuário editado
             {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            if (ModelState.IsValid)  // Verifica se o modelo está válido
             {
                 try
                 {
+<<<<<<< HEAD
                     _context.Update(usuario);
                     await _context.SaveChangesAsync();
                     return RedirectToAction(nameof(Index));
+=======
+                    _context.Update(usuario);  // Atualiza o usuário no contexto
+                    await _context.SaveChangesAsync();  // Salva as alterações no banco
+>>>>>>> main
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!UsuarioExists(usuario.Id))
+                    if (!UsuarioExists(usuario.Id))  // Verifica se o usuário ainda existe
                     {
                         return NotFound();
                     }
                     else
                     {
-                        throw;
+                        throw;  // Lança exceção caso haja erro na atualização
                     }
                 }
+<<<<<<< HEAD
                 catch (Exception ex)
                 {
                     ModelState.AddModelError("", "Erro ao atualizar os dados: " + ex.Message);
                 }
+=======
+                return RedirectToAction(nameof(Index));  // Redireciona para a lista de usuários
+>>>>>>> main
             }
-            return View(usuario);
+            return View(usuario);  // Retorna a view de edição com erros
         }
 
         // GET: Usuarios/Delete/5
@@ -135,16 +158,17 @@ namespace WebApplication2.Controllers
         {
             if (id == null)
             {
-                return NotFound();
+                return NotFound();  // Retorna erro se o ID não for fornecido
             }
 
-            var usuario = await _context.Usuarios.FirstOrDefaultAsync(m => m.Id == id);
+            var usuario = await _context.Usuarios
+                .FirstOrDefaultAsync(m => m.Id == id);  // Busca o usuário a ser excluído
             if (usuario == null)
             {
-                return NotFound();
+                return NotFound();  // Retorna erro se o usuário não for encontrado
             }
 
-            return View(usuario);
+            return View(usuario);  // Retorna a view de exclusão com o usuário
         }
 
         // POST: Usuarios/Delete/5
@@ -155,17 +179,26 @@ namespace WebApplication2.Controllers
             var usuario = await _context.Usuarios.FindAsync(id);
             if (usuario == null)
             {
+<<<<<<< HEAD
                 return NotFound();
             }
 
             _context.Usuarios.Remove(usuario);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
+=======
+                return NotFound();  // Retorna erro se o usuário não for encontrado
+            }
+
+            _context.Usuarios.Remove(usuario);  // Remove o usuário do contexto
+            await _context.SaveChangesAsync();  // Salva as alterações no banco
+            return RedirectToAction(nameof(Index));  // Redireciona para a lista de usuários
+>>>>>>> main
         }
 
         private bool UsuarioExists(int id)
         {
-            return _context.Usuarios.Any(e => e.Id == id);
+            return _context.Usuarios.Any(e => e.Id == id);  // Verifica se o usuário existe
         }
     }
 }
