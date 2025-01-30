@@ -173,6 +173,10 @@ private void btnExcluir_Click(object sender, EventArgs e)
 ## Dia 21
 - Deu tudo errado tem rever projeto nao esta salvando dados
   
+## Dia 22
+- Criando Projeto novo do zero para achar erro
+ <br>
+<img src="https://github.com/user-attachments/assets/b6e4ab69-cd8f-4fe1-b50c-966acc6f19f2" height="300" width="600">
 
   
 ## 🔗 Links Úteis
