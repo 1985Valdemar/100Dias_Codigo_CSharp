@@ -178,6 +178,25 @@ private void btnExcluir_Click(object sender, EventArgs e)
  <br>
 <img src="https://github.com/user-attachments/assets/b6e4ab69-cd8f-4fe1-b50c-966acc6f19f2" height="300" width="600">
 
+## Dia 22
+- Criando Projeto MVC mas ainda com erro
+
+## Dia 24
+- Criando Projeto novo do zero para achar erro
+- Usando por fora em postgres
+
+## Dia 25
+- Configurado Projeto novo
+- Usando por fora em postgres
+- Funcionou Huruuuuuuu
+- Agora verificar erro que esta dando docker
+ <br>
+<img src="https://github.com/user-attachments/assets/e738781e-51e9-434c-9795-d22ca31fc95e" height="500" width="800">
+ <br>
+<img src="https://github.com/user-attachments/assets/476d9f5c-f36e-40cd-8349-4f42dd235c77" height="500" width="800">
+
+
+
   
 ## 🔗 Links Úteis
 
