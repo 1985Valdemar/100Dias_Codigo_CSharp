@@ -1,14 +1,36 @@
 using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics;
+using WebApplication1.Models;
 
-public class HomeController : Controller
+namespace WebApplication1.Controllers
 {
-    public IActionResult Index()
+    public class HomeController : Controller
     {
-        return View(); // Se não for necessário carregar dados aqui, o Index pode continuar vazio
-    }
+        private readonly ILogger<HomeController> _logger;
 
-    public IActionResult Privacy()
-    {
-        return View();
+        public HomeController(ILogger<HomeController> logger)
+        {
+            _logger = logger;
+        }
+
+        public IActionResult Index()
+        {
+            HomeModel model = new HomeModel();
+            model.Nome = "Valdemar Teider";
+            model.Email = "vteider@gmail.com";
+
+            return View(model);
+        }
+
+        public IActionResult Privacy()
+        {
+            return View();
+        }
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
     }
 }

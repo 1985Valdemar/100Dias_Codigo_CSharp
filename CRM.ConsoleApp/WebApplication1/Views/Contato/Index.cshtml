@@ -1,0 +1,60 @@
+﻿@{
+    ViewData["Title"] = "Listagem de Contatos";
+}
+
+<div class="text-center">
+    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <a class="btn-group btn-group-sm" role="button" asp-controller="Contato" asp-action="Criar">Adicionar Novo Contato</a>
+    </div>
+
+    <h1 class="display-4">Minha Lista Contatos</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome</th>
+                <th scope="col">E-mail</th>
+                <th scope="col">Celular</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>Valdemar</td>
+                <td>teider@gmail.com</td>
+                <td>41 991137608</td>
+                <td>
+                    <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
+                        <a class="btn btn-outline-primary" asp-controller="Contato" asp-action="Editar">Editar</a>
+                        <a class="btn btn-outline-primary" asp-controller="Contato" asp-action="Apagar">Deletar</a>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Frank</td>
+                <td>teider1@gmail.com</td>
+                <td>41 991137600</td>
+                <td>
+                    <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
+                        <a class="btn btn-outline-primary" asp-controller="Contato" asp-action="Editar">Editar</a>
+                        <a class="btn btn-outline-primary" asp-controller="Contato" asp-action="Apagar">Deletar</a>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>Daniela</td>
+                <td>teider3@gmail.com</td>
+                <td>41 991137655</td>
+                <td>
+                    <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
+                        <a class="btn btn-outline-primary" asp-controller="Contato" asp-action="Editar">Editar</a>
+                        <a class="btn btn-outline-primary" asp-controller="Contato" asp-action="Apagar">Deletar</a>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
