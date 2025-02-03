@@ -134,16 +134,17 @@ private void btnExcluir_Click(object sender, EventArgs e)
     }
 }
 ```
- 
-![Captura de tela 2025-01-22 153316](https://github.com/user-attachments/assets/ec24dcf3-aba5-40e2-96f3-b0aac6a149c6)
+<br>
+<img src="https://github.com/user-attachments/assets/ec24dcf3-aba5-40e2-96f3-b0aac6a149c6" height="500" width="800">
 
-![Captura de tela 2025-01-22 153817](https://github.com/user-attachments/assets/51721841-ca7f-4740-a3f7-ef3aaf837383)
+<br>
+<img src="https://github.com/user-attachments/assets/51721841-ca7f-4740-a3f7-ef3aaf837383" height="500" width="800">
 
 ## Dia 15
 - Inserindo Update
 - Atualizado com Try-Catch para tratar possiveis erros
   <br>
-  ![Captura de tela 2025-01-23 134806](https://github.com/user-attachments/assets/0be5abcc-6d37-41d0-b605-a9baedfc0f90)
+  <img src="https://github.com/user-attachments/assets/0be5abcc-6d37-41d0-b605-a9baedfc0f90" height="500" width="800">
 
 ## Dia 16
 - Melhorado Performace codigo crud
@@ -158,13 +159,13 @@ private void btnExcluir_Click(object sender, EventArgs e)
 - Atualizado projeto tentado reutilizar projeto já criado mas deu vários conflitos
 - Tendo que iniciar do Zero mas funcionou vamos atualizando aos poucos nem todo dia Vencemos
 <br>
-<img src="https://github.com/user-attachments/assets/066506ce-b377-4ce5-98e6-e6adb2aa9be7" height="300" width="600">
+<img src="https://github.com/user-attachments/assets/066506ce-b377-4ce5-98e6-e6adb2aa9be7" height="500" width="800">
 
 ## Dia 19
 - Configurado CRUD mas nao funcionou ainda mas vai
 - tive varios desafios como conlfito de atualizar mas agora estou guase la em fazer os parametro
  <br>
-<img src="https://github.com/user-attachments/assets/421597b2-a776-44e8-a988-8e2c216c4503" height="300" width="600">
+<img src="https://github.com/user-attachments/assets/421597b2-a776-44e8-a988-8e2c216c4503" height="500" width="800">
 
 ## Dia 20
 - Tentado salvar dados mas sem sucesso
@@ -176,7 +177,7 @@ private void btnExcluir_Click(object sender, EventArgs e)
 ## Dia 22
 - Criando Projeto novo do zero para achar erro
  <br>
-<img src="https://github.com/user-attachments/assets/b6e4ab69-cd8f-4fe1-b50c-966acc6f19f2" height="300" width="600">
+<img src="https://github.com/user-attachments/assets/b6e4ab69-cd8f-4fe1-b50c-966acc6f19f2" height="500" width="800">
 
 ## Dia 22
 - Criando Projeto MVC mas ainda com erro
@@ -195,7 +196,14 @@ private void btnExcluir_Click(object sender, EventArgs e)
  <br>
 <img src="https://github.com/user-attachments/assets/476d9f5c-f36e-40cd-8349-4f42dd235c77" height="500" width="800">
 
-
+## Dia 25
+- Configurado Projeto com Editar e Deletar
+- Otimizado deletar para ter interação de confirmação de exclusão 
+- Realizado testes de Adicionar, editar e Deletar do Banco
+ <br>
+<img src="https://github.com/user-attachments/assets/6d5da473-dc6e-43a0-a01b-44a7f292c28a" height="500" width="800">
+ <br>
+<img src="https://github.com/user-attachments/assets/c21cf294-011b-447a-8d15-4393ce81ad46" height="500" width="800">
 
   
 ## 🔗 Links Úteis
