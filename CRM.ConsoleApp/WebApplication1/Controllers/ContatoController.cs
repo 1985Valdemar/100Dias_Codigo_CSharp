@@ -2,6 +2,7 @@
 using WebApplication1.Models;
 using WebApplication1.Repositories;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace WebApplication1.Controllers
 {
@@ -53,9 +54,23 @@ namespace WebApplication1.Controllers
             return View(contato);
         }
 
-        public IActionResult Apagar()
+        // Exibe a página de confirmação antes de deletar
+        public IActionResult Apagar(int id)
         {
-            return View();
+            ContatoModel contato = _contatoRepository.BuscarPorId(id);
+            if (contato == null)
+            {
+                return NotFound();
+            }
+            return View(contato);
+        }
+
+        // Confirma e deleta o contato
+        [HttpPost]
+        public IActionResult ConfirmarApagar(int id)
+        {
+            _contatoRepository.Apagar(id);
+            return RedirectToAction("Index");
         }
     }
 }
