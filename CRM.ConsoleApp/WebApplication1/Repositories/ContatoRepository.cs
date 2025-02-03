@@ -69,6 +69,15 @@ namespace WebApplication1.Repositories
         {
             return _bancoContext.Contato.AsEnumerable();
         }
+        public void Apagar(int id)
+        {
+            ContatoModel contato = BuscarPorId(id);
+            if (contato != null)
+            {
+                _bancoContext.Contato.Remove(contato);
+                _bancoContext.SaveChanges();
+            }
+        }
 
 
 
