@@ -9,11 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20250131181258_CriandoTabelaContatos.cs" />
-    <Compile Remove="Migrations\20250131181258_CriandoTabelaContatos.Designer.cs" />
-    <Compile Remove="Migrations\20250131200014_InitialCreate.cs" />
-    <Compile Remove="Migrations\20250131200014_InitialCreate.Designer.cs" />
-    <Compile Remove="Migrations\BancoContextModelSnapshot.cs" />
+    <Compile Remove="Migrations\**" />
+    <Content Remove="Migrations\**" />
+    <EmbeddedResource Remove="Migrations\**" />
+    <None Remove="Migrations\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -28,10 +27,6 @@
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.0" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.3" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Migrations\" />
   </ItemGroup>
 
 </Project>

@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using WebApplication3.Models;
+using LogLevel = WebApplication3.Models.LogLevel;
 
 namespace WebApplication3.Data
 {
@@ -12,6 +13,9 @@ namespace WebApplication3.Data
         //TRAZENDO ENTIDADE MODELO DO CONTATO
         //PROPRIEDADE VAI CRIAR TABELA
         public DbSet<ContatoModel> Contato { get; set; }
+        public DbSet<LogLevel> LogLevels { get; set; }
+        public DbSet<ConnectionStrings> ConnectionStrings { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<ContatoModel>()
