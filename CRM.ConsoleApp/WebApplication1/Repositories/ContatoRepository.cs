@@ -33,5 +33,45 @@ namespace WebApplication1.Repositories
                 throw new Exception("Ocorreu um erro inesperado ao salvar os dados", ex);
             }
         }
+
+        public ContatoModel Atualizar(ContatoModel contato)
+        {
+            try
+            {
+                var contatoExistente = _bancoContext.Contato.SingleOrDefault(c => c.Id == contato.Id);
+
+                if (contatoExistente == null)
+                    throw new Exception("Contato não encontrado");
+
+                contatoExistente.Nome = contato.Nome;
+                contatoExistente.Email = contato.Email;
+                contatoExistente.Celular = contato.Celular;
+
+                _bancoContext.Contato.Update(contatoExistente);
+                _bancoContext.SaveChanges();
+
+                return contatoExistente;
+            }
+            catch (DbUpdateException ex)
+            {
+                throw new Exception("Erro ao atualizar os dados no banco de dados", ex);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro inesperado ao atualizar os dados", ex);
+            }
+        }
+        public ContatoModel BuscarPorId(int id)
+        {
+            return _bancoContext.Contato.FirstOrDefault(c => c.Id == id);
+        }
+        public IEnumerable<ContatoModel> ObterTodos()
+        {
+            return _bancoContext.Contato.AsEnumerable();
+        }
+
+
+
+
     }
 }

@@ -1,33 +1,31 @@
-﻿@{
+﻿@model WebApplication1.Models.ContatoModel
+
+@{
     ViewData["Title"] = "Editar Contato";
 }
 
 <div class="text-center">
-
     <h1 class="display-4">Editar Contato</h1>
-
 </div>
-<form>
+
+<form asp-action="Editar" method="post">
+    <input type="hidden" asp-for="Id" />
+
     <div class="form-group">
-        <label for="nome">Nome</label>
-        <input type="text" class="form-control" id="nome" aria-describedby="nomeCadastro" placeholder="Digite o nome do contato">
+        <label asp-for="Nome"></label>
+        <input asp-for="Nome" class="form-control" placeholder="Digite o nome do contato">
     </div>
+
     <div class="form-group">
-        <label for="exampleInputEmail1">Email</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" class="form-control" placeholder="Digite o email">
     </div>
+
     <div class="form-group">
-        <label for="celular">Celular</label>
-        <input type="text" class="form-control" id="celular" aria-describedby="celualarCadastro" placeholder="Digite o Celular do contato">
+        <label asp-for="Celular"></label>
+        <input asp-for="Celular" class="form-control" placeholder="Digite o celular">
     </div>
-    <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-    </div>
-    <div class="form-group form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-        <label class="form-check-label" for="exampleCheck1">Check me out</label>
-    </div>
-    <button type="submit" class="btn btn-primary">Alterar</button>
-    <a class="btn btn-secondary" asp-controller="Contato" asp-action="Index" role="button">Voltar</a>
+
+    <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+    <a class="btn btn-secondary" asp-controller="Contato" asp-action="Index">Voltar</a>
 </form>
