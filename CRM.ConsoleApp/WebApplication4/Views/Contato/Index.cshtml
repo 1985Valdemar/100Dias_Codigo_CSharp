@@ -1,0 +1,36 @@
+﻿@model IEnumerable<WebApplication4.Models.ContatoModel>
+
+@{
+    ViewData["Title"] = "Lista de Contatos";
+}
+
+<h1>Lista de Contatos</h1>
+
+<a class="btn btn-success" asp-controller="Contato" asp-action="Criar">Adicionar Novo Contato</a> <!-- Link para adicionar novo contato -->
+
+<table class="table mt-3">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Celular</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var contato in Model)
+        {
+            <tr>
+                <td>@contato.Id</td>
+                <td>@contato.Nome</td>
+                <td>@contato.Email</td>
+                <td>@contato.Celular</td>
+                <td>
+                    <a class="btn btn-warning" asp-controller="Contato" asp-action="Editar" asp-route-id="@contato.Id">Editar</a>
+                    <a class="btn btn-danger" asp-controller="Contato" asp-action="Apagar" asp-route-id="@contato.Id">Deletar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
