@@ -44,24 +44,21 @@
   uma estrutura mais robusta.
 - Unica coisa manual foi criar banco pelo DBeaver o resto tudo pelo C# e ajuda IA.
 - Abaixo Imagem test estou usando DBeaver para fazer Gerenciamento do Banco Dados
-  <br>
-  
- ![Captura de tela 2025-01-14 155648](https://github.com/user-attachments/assets/1ad1acf4-a8ac-470f-9249-79041060c203)
+ <br>
+  <img src="https://github.com/user-attachments/assets/1ad1acf4-a8ac-470f-9249-79041060c203" height="500" width="800">
 
 ## Dia 7
 - Otimizado codigo com Menu e Reestruturado codigo deixando mais robusto
 - segue imagem codigo
-  <br>
-  
- ![Captura de tela 2025-01-15 171503](https://github.com/user-attachments/assets/76b98291-e80a-4e52-8ea8-81d718c0fb05)
+ <br>
+  <img src="https://github.com/user-attachments/assets/76b98291-e80a-4e52-8ea8-81d718c0fb05" height="500" width="800">
 
 ## Dia 8
 - Otimizado codigo com Pasta Common para Reutilizar codigo
 - Reestruturado codigo deixando mais robusto colocando cores e para otimizar
 - segue imagem codigo
-  <br>
-
-![Captura de tela 2025-01-16 191703](https://github.com/user-attachments/assets/c7459eae-564f-41f7-ba64-56de796e19d5)
+<br>
+  <img src="https://github.com/user-attachments/assets/c7459eae-564f-41f7-ba64-56de796e19d5" height="500" width="800">
 
 ## Dia 9
 - Revisto Codigo View e Repository para otimizar codigo
@@ -73,26 +70,27 @@
 - Testado delete simples mas por segurança obtei em aprimorar e deixar mais seguro codigo
 - Antes deletar Vai Solicitar confirmaçao do CPF para usuario confirmar e assim deletar
 - segue imagem codigo
-  <br>
-
-![Captura de tela 2025-01-18 201403](https://github.com/user-attachments/assets/49a5823d-10d0-4960-8155-5db649e4edfc)
+<br>
+  <img src="https://github.com/user-attachments/assets/49a5823d-10d0-4960-8155-5db649e4edfc" height="500" width="800">
 
 ## Dia 11
 - Implementado Base Model para Id
 - Utilizando como Herança em Cliente para Id
 - Após varias tentativas e ajustes em Cliente e Repository Funcionou
 - segue imagem codigo aqui Banco dados
-  <br>
-![Captura de tela 2025-01-19 195312](https://github.com/user-attachments/assets/54bebfd2-72dc-4564-b871-63e0f4453948)
+<br>
+  <img src="https://github.com/user-attachments/assets/54bebfd2-72dc-4564-b871-63e0f4453948" height="500" width="800">
+  
   <br>
 - segue imagem codigo 
-![Captura de tela 2025-01-19 194919](https://github.com/user-attachments/assets/07d3a08d-5f44-49c0-876d-1e9a107207eb)
+<br>
+  <img src="https://github.com/user-attachments/assets/07d3a08d-5f44-49c0-876d-1e9a107207eb" height="500" width="800">
 
 ## Dia 12
 - Criado Formulario com Form
 - Testado funcionado porém tem afazer link com view
-  <br>
-- ![Captura de tela 2025-01-20 195156](https://github.com/user-attachments/assets/9d481688-3dd5-4ffc-8d70-2ef0fe9bb553)
+ <br>
+  <img src="https://github.com/user-attachments/assets/9d481688-3dd5-4ffc-8d70-2ef0fe9bb553" height="500" width="800">
 
 ## Dia 13
 - Inserido Web AspNet Core
@@ -104,6 +102,7 @@
 - Confirmando com usuario o cancelamento
 - Abaixo Codigo e imagem codigo
 ```csharp
+
 private void btnExcluir_Click(object sender, EventArgs e)
 {
     try
@@ -114,7 +113,8 @@ private void btnExcluir_Click(object sender, EventArgs e)
         if (indice >= 0)
         {
             // Exibir mensagem de confirmação
-            DialogResult resultado = MessageBox.Show("Tem certeza que deseja excluir esta empresa?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult resultado = MessageBox.Show("Tem certeza que deseja excluir esta empresa?",
+                                   "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             // Verificar resposta do usuário
             if (resultado == DialogResult.Yes)
@@ -196,7 +196,7 @@ private void btnExcluir_Click(object sender, EventArgs e)
  <br>
 <img src="https://github.com/user-attachments/assets/476d9f5c-f36e-40cd-8349-4f42dd235c77" height="500" width="800">
 
-## Dia 25
+## Dia 26
 - Configurado Projeto com Editar e Deletar
 - Otimizado deletar para ter interação de confirmação de exclusão 
 - Realizado testes de Adicionar, editar e Deletar do Banco
@@ -204,6 +204,19 @@ private void btnExcluir_Click(object sender, EventArgs e)
 <img src="https://github.com/user-attachments/assets/6d5da473-dc6e-43a0-a01b-44a7f292c28a" height="500" width="800">
  <br>
 <img src="https://github.com/user-attachments/assets/c21cf294-011b-447a-8d15-4393ce81ad46" height="500" width="800">
+
+## Dia 27
+- Configurado MVC para não habilitar o Contêiner no docker
+- Testado e configurado
+- Realizado testes de Adicionar, editar e Deletar do Banco do docker
+ <br>
+  Não Habilitando Contêiner Modo simples
+<img src="https://github.com/user-attachments/assets/d5e77d71-1f39-4d8f-961a-77cdf9b9b40d" height="500" width="800">
+
+ <br>
+ Modo Habilitado Conteiner mais complexo
+<img src="https://github.com/user-attachments/assets/7052413a-a323-4c28-a3ad-358e029ff352" height="500" width="800">
+
 
   
 ## 🔗 Links Úteis
