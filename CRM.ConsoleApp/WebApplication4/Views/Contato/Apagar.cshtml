@@ -1,0 +1,25 @@
+﻿@model WebApplication4.Models.ContatoModel
+
+@{
+    ViewData["Title"] = "Apagar Contato";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Deletar Contato</h1>
+    <h3 class="mt-3 text-danger">⚠ Tem certeza de que deseja excluir o contato <strong>@Model.Nome</strong>?</h3>
+
+    <div class="d-flex justify-content-center gap-3 mt-4">
+        <a class="btn btn-secondary px-4" asp-controller="Contato" asp-action="Index">Cancelar</a>
+
+        <form asp-controller="Contato" asp-action="ConfirmarApagar" method="post" onsubmit="return confirmarExclusao()">
+            <input type="hidden" name="id" value="@Model.Id" />
+            <button type="submit" class="btn btn-danger px-4">Confirmar Exclusão</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    function confirmarExclusao() {
+        return confirm("⚠ Você está prestes a excluir este contato. Essa ação não pode ser desfeita! Tem certeza?");
+    }
+</script>

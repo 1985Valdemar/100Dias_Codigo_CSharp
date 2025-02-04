@@ -1,0 +1,31 @@
+﻿@model WebApplication4.Models.ContatoModel
+
+@{
+    ViewData["Title"] = "Editar Contato";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Editar Contato</h1>
+</div>
+
+<form asp-action="Editar" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <div class="form-group">
+        <label asp-for="Nome"></label>
+        <input asp-for="Nome" class="form-control" placeholder="Digite o nome do contato">
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" class="form-control" placeholder="Digite o email">
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Celular"></label>
+        <input asp-for="Celular" class="form-control" placeholder="Digite o celular">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+    <a class="btn btn-secondary" asp-controller="Contato" asp-action="Index">Voltar</a>
+</form>
