@@ -1,10 +1,43 @@
 ﻿@model HomeModel
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Página Principal"; // Título da página
 }
 
 <div class="text-center">
-    <h1 class="display-4">Bem Vindo, @Model.Nome</h1>
-    <p>Meu Primerio Site Em MVC</p>
-    <span>Seu e-mail é: @Model.Email</span>
+    <h3 class="display-4">Bem-vindo </h3>
+    <h2 class="display-4">@Model.Nome!</h2>
+    <p>CRM (Customer Relationship Management) é a gestão do relacionamento com o cliente 
+        que visa otimizar as interações entre empresa e consumidor </p>
+    <span>e-mail: @Model.Email</span>
+
+    <!-- Adicione aqui elementos específicos do CRM -->
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Novos Clientes</h5>
+                    <p class="card-text">Você tem novos clientes este mês.</p>
+                    <a href="#" class="btn btn-primary">Ver Clientes</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Oportunidades Abertas</h5>
+                    <p class="card-text">Você tem oportunidades de venda em aberto.</p>
+                    <a href="#" class="btn btn-primary">Ver Oportunidades</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Tarefas Pendentes</h5>
+                    <p class="card-text">Você tem tarefas agendadas para hoje.</p>
+                    <a href="#" class="btn btn-primary">Ver Tarefas</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

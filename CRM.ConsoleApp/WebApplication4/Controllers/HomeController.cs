@@ -16,8 +16,8 @@ namespace WebApplication4.Controllers
         public IActionResult Index()
         {
             HomeModel model = new HomeModel();
-            model.Nome = "Valdemar Teider";
-            model.Email = "vteider@gmail.com";
+            model.Nome = "CRM";
+            model.Email = "crm@gmail.com";
 
             return View(model);
         }
