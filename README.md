@@ -217,8 +217,18 @@ private void btnExcluir_Click(object sender, EventArgs e)
  Modo Habilitado Conteiner mais complexo
 <img src="https://github.com/user-attachments/assets/7052413a-a323-4c28-a3ad-358e029ff352" height="500" width="800">
 
+## Dia 28
+- Praticado Docker dentro Docker
+- Iniciado pratica CRM como fazer
 
-  
+## Dia 29
+- Estilizar página CRM: Isso é importante para a experiência do usuário. Use frameworks como Bootstrap ou Tailwind CSS para agilizar o processo.
+- Faltou interação e regras de negócios: Este é o ponto chave! A estilização é superficial sem a lógica por trás.
+- Faltou requisitos para prosseguir: Sem requisitos claros, você estará "atirando no escuro".
+ <br>
+<img src="https://github.com/user-attachments/assets/41b8b5f4-3c24-4696-bd63-ffeaf684cf77" height="500" width="800">
+
+
 ## 🔗 Links Úteis
 
 - [Meu LinkedIn](https://www.linkedin.com/in/valdemar-teider-5336b394/)
