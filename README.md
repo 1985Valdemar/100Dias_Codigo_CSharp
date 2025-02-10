@@ -228,6 +228,10 @@ private void btnExcluir_Click(object sender, EventArgs e)
  <br>
 <img src="https://github.com/user-attachments/assets/41b8b5f4-3c24-4696-bd63-ffeaf684cf77" height="500" width="800">
 
+## Dia 30 á 33 
+- Devido a viajem pela empresa tive alguns transtornos e acabei que não podendo estudar e conseguentemente postar.
+- Mas bola pra frente Gosto da Frase "NÃO E O QUE MEREÇO MAS E O TENHO POR ENQUANTO"
+  
 
 ## 🔗 Links Úteis
 
